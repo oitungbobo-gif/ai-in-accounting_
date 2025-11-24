@@ -75,188 +75,188 @@ const ChatbotComponent = ({ currentSlide, slideTitle }) => {
         0: { // Intro
             summary: "We are upgrading finance from manual data entry to strategic insight. Think of AI as an infinite capacity assistant that handles the boring stuff so you can focus on value.",
             examples: [
-                "📉 -> 📈: Instead of typing invoice numbers, you scan a PDF and AI fills the SAP fields automatically.",
-                "💡: Instead of manually categorizing expenses, AI suggests 'Travel' based on the vendor 'Uber'.",
-                "💡: You ask 'What was our T&E spend last Q3?' and get an instant chart without running a report.",
-                "💡: AI flags a $50,000 payment to a new vendor for manual review before it goes out.",
-                "💡: Drafting a policy update email to the whole company in 30 seconds instead of 30 minutes."
+                " -> : Instead of typing invoice numbers, you scan a PDF and AI fills the SAP fields automatically.",
+                " : Instead of manually categorizing expenses, AI suggests 'Travel' based on the vendor 'Uber'.",
+                " : You ask 'What was our T&E spend last Q3?' and get an instant chart without running a report.",
+                " : AI flags a $50,000 payment to a new vendor for manual review before it goes out.",
+                " : Drafting a policy update email to the whole company in 30 seconds instead of 30 minutes."
             ],
             importance: [
-                "🚀 It stops us from being 'data janitors' and makes us 'data architects'.",
-                "🚀 It handles the sheer volume of data that is becoming impossible for humans to manage manually.",
-                "🚀 It reduces the 'fatigue factor' where human eyes miss errors after staring at spreadsheets for hours.",
-                "🚀 It allows the finance team to scale with the company without just hiring more bodies.",
-                "🚀 It frees up mental energy for the complex problem-solving that actually drives business value."
+                " It stops us from being 'data janitors' and makes us 'data architects'.",
+                " It handles the sheer volume of data that is becoming impossible for humans to manage manually.",
+                " It reduces the 'fatigue factor' where human eyes miss errors after staring at spreadsheets for hours.",
+                " It allows the finance team to scale with the company without just hiring more bodies.",
+                " It frees up mental energy for the complex problem-solving that actually drives business value."
             ]
         },
         1: { // Why AI Matters
             summary: "AI upgrades your role, speeds up the close, acts as a trusted advisor, catches mistakes 24/7, and ensures compliance.",
             examples: [
-                "💡: Closing the books: AI matches 99% of intercompany transactions automatically, saving days.",
-                "💡: Compliance: AI scans thousands of transactions against new lease accounting standards instantly.",
-                "💡: Advisory: You ask AI to analyze customer churn vs. discounts given, revealing a bad strategy.",
-                "💡: Error Catching: It flags a duplicate invoice that had a slightly different invoice number format (INV-01 vs INV01).",
-                "💡: Speed: Generating a preliminary board deck with charts in minutes instead of hours."
+                " : Closing the books: AI matches 99% of intercompany transactions automatically, saving days.",
+                " : Compliance: AI scans thousands of transactions against new lease accounting standards instantly.",
+                " : Advisory: You ask AI to analyze customer churn vs. discounts given, revealing a bad strategy.",
+                " : Error Catching: It flags a duplicate invoice that had a slightly different invoice number format (INV-01 vs INV01).",
+                " : Speed: Generating a preliminary board deck with charts in minutes instead of hours."
             ],
             importance: [
-                "🚀 Speed to insight: Management needs numbers *now*, not in 3 weeks.",
-                "🚀 Risk reduction: 100% sampling vs random sampling in audit.",
-                "🚀 Cost savings: Preventing overpayments and fraud adds directly to the bottom line.",
-                "🚀 Employee satisfaction: Nobody likes data entry; removing it reduces burnout.",
-                "🚀 Credibility: Fewer manual errors means the business trusts the finance numbers more."
+                " Speed to insight: Management needs numbers *now*, not in 3 weeks.",
+                " Risk reduction: 100% sampling vs random sampling in audit.",
+                " Cost savings: Preventing overpayments and fraud adds directly to the bottom line.",
+                " Employee satisfaction: Nobody likes data entry; removing it reduces burnout.",
+                " Credibility: Fewer manual errors means the business trusts the finance numbers more."
             ]
         },
         2: { // Core Modules
             summary: "The 4 pillars of this training are: 1. Mindset (Partner), 2. Prompting (The Ask), 3. Workflows (The Process), and 4. Responsibility (The Ethics).",
             examples: [
-                "💡: Mindset: Viewing AI as a 'junior analyst' to delegate research to, not a magic button.",
-                "💡: Prompting: Learning to ask 'Find the outlier' instead of just 'Show me the data'.",
-                "💡: Workflows: Setting up an auto-forward rule for invoices to the AI processor.",
-                "💡: Responsibility: Checking the AI's tax memo against the actual IRS code.",
-                "💡: Integration: Using AI to connect data between Salesforce and NetSuite without code."
+                " : Mindset: Viewing AI as a 'junior analyst' to delegate research to, not a magic button.",
+                " : Prompting: Learning to ask 'Find the outlier' instead of just 'Show me the data'.",
+                " : Workflows: Setting up an auto-forward rule for invoices to the AI processor.",
+                " : Responsibility: Checking the AI's tax memo against the actual IRS code.",
+                " : Integration: Using AI to connect data between Salesforce and NetSuite without code."
             ],
             importance: [
-                "🚀 A tool is only as good as the user; training ensures we use it safely.",
-                "🚀 Bad prompts lead to bad financial advice; precision is key in accounting.",
-                "🚀 Understanding workflows prevents 'automation silos' where only one person knows how it works.",
-                "🚀 Responsible use protects the company from data leaks and reputational damage.",
-                "🚀 It provides a structured learning path so the team isn't overwhelmed."
+                " A tool is only as good as the user; training ensures we use it safely.",
+                " Bad prompts lead to bad financial advice; precision is key in accounting.",
+                " Understanding workflows prevents 'automation silos' where only one person knows how it works.",
+                " Responsible use protects the company from data leaks and reputational damage.",
+                " It provides a structured learning path so the team isn't overwhelmed."
             ]
         },
         3: { // Mindset Game
             summary: "AI handles high-volume, repetitive tasks (Data Entry). Humans handle high-value, strategic tasks (Empathy, Judgment).",
             examples: [
-                "🤖 AI Task: Sorting 5,000 bank transaction lines by category.",
-                "🧠 Human Task: Deciding if a 'Miscellaneous' expense is actually a bribe risk.",
-                "🤖 AI Task: Calculating depreciation schedules for 200 assets.",
-                "🧠 Human Task: Negotiating a payment plan with a struggling long-term client.",
-                "🤖 AI Task: Translating foreign subsidiary financial statements."
+                " AI Task: Sorting 5,000 bank transaction lines by category.",
+                " Human Task: Deciding if a 'Miscellaneous' expense is actually a bribe risk.",
+                " AI Task: Calculating depreciation schedules for 200 assets.",
+                " Human Task: Negotiating a payment plan with a struggling long-term client.",
+                " AI Task: Translating foreign subsidiary financial statements."
             ],
             importance: [
-                "🚀 Knowing the difference prevents us from trusting AI with 'judgment calls' it can't make.",
-                "🚀 It highlights our value: Empathy, Ethics, and Strategy cannot be automated.",
-                "🚀 It prevents fear: We see AI as taking the 'robot work' out of the human.",
-                "🚀 It improves efficiency: We don't waste human brainpower on rote matching.",
-                "🚀 It clarifies accountability: The human is always the final signer."
+                " Knowing the difference prevents us from trusting AI with 'judgment calls' it can't make.",
+                " It highlights our value: Empathy, Ethics, and Strategy cannot be automated.",
+                " It prevents fear: We see AI as taking the 'robot work' out of the human.",
+                " It improves efficiency: We don't waste human brainpower on rote matching.",
+                " It clarifies accountability: The human is always the final signer."
             ]
         },
         4: { // Prompting
             summary: "To get good answers, follow the 4 Rules: 1. Be Specific, 2. Give a Role, 3. Set a Goal, 4. Choose a Format.",
             examples: [
-                "💡: Role: 'Act as a Credit Controller. Write a polite dunning email for a 30-day overdue account.'",
-                "💡: Context: 'Given we are a SaaS company, analyze these metrics...'",
-                "💡: Goal: 'I need to reduce T&E spend. Analyze this report and find the top 3 areas to cut.'",
-                "💡: Format: 'Output the answer as a CSV table I can paste into Excel.'",
-                "💡: Constraint: 'Explain this variance to a non-finance manager using simple analogies.'"
+                " : Role: 'Act as a Credit Controller. Write a polite dunning email for a 30-day overdue account.'",
+                " : Context: 'Given we are a SaaS company, analyze these metrics...'",
+                " : Goal: 'I need to reduce T&E spend. Analyze this report and find the top 3 areas to cut.'",
+                " : Format: 'Output the answer as a CSV table I can paste into Excel.'",
+                " : Constraint: 'Explain this variance to a non-finance manager using simple analogies.'"
             ],
             importance: [
-                "🚀 AI models are literal; vague instructions produce generic, useless nonsense.",
-                "🚀 Good prompting saves time by reducing the need for follow-up questions.",
-                "🚀 It unlocks advanced capabilities; giving a 'Role' makes the AI access specific domain knowledge.",
-                "🚀 Standardized prompting ensures consistent results across the team.",
-                "🚀 It transforms the AI from a search engine into a creative consultant."
+                " AI models are literal; vague instructions produce generic, useless nonsense.",
+                " Good prompting saves time by reducing the need for follow-up questions.",
+                " It unlocks advanced capabilities; giving a 'Role' makes the AI access specific domain knowledge.",
+                " Standardized prompting ensures consistent results across the team.",
+                " It transforms the AI from a search engine into a creative consultant."
             ]
         },
         5: { // Workflows
             summary: "Don't just automate everything. 1. Find Slow Spots, 2. Clean Up Steps, 3. Place Automation (Assistant vs Engine), 4. Human Review.",
             examples: [
-                "💡: Slow Spot: Manually keying data from PDF purchase orders.",
-                "💡: Clean Up: Standardizing vendor names (e.g., 'IBM' vs 'I.B.M.') before analysis.",
-                "💡: Assistant Mode: Using Copilot to draft the narrative for the board pack.",
-                "💡: Engine Mode: A background script that auto-matches receipts to credit card transactions.",
-                "💡: Review: A human checking the 'Low Confidence' matches flagged by the AI."
+                " : Slow Spot: Manually keying data from PDF purchase orders.",
+                " : Clean Up: Standardizing vendor names (e.g., 'IBM' vs 'I.B.M.') before analysis.",
+                " : Assistant Mode: Using Copilot to draft the narrative for the board pack.",
+                " : Engine Mode: A background script that auto-matches receipts to credit card transactions.",
+                " : Review: A human checking the 'Low Confidence' matches flagged by the AI."
             ],
             importance: [
-                "🚀 Automating a broken process just creates broken data faster.",
-                "🚀 Identifying 'Slow Spots' ensures high ROI on automation efforts.",
-                "🚀 Distinguishing between Assistant and Engine modes helps pick the right tool.",
-                "🚀 The 'Review' step is the safety valve that prevents financial misstatements.",
-                "🚀 It creates a culture of continuous improvement rather than 'set and forget'."
+                " Automating a broken process just creates broken data faster.",
+                " Identifying 'Slow Spots' ensures high ROI on automation efforts.",
+                " Distinguishing between Assistant and Engine modes helps pick the right tool.",
+                " The 'Review' step is the safety valve that prevents financial misstatements.",
+                " It creates a culture of continuous improvement rather than 'set and forget'."
             ]
         },
         6: { // Responsible AI
-            summary: "Safety first: 1. Human Verification (Review everything), 2. Data Confidentiality (No PII in public), 3. Compliance (Follow rules), 4. Audit Trails (Track usage).",
+            summary: "Safety first: 1. Human Verification (Review everything), 2. Data Confidentiality (No PII in public), 3. Governance and Compliance (Follow rules), 4. Audit Trails (Track usage).",
             examples: [
-                "💡: Verification: You double-check the tax rate AI used because it might be outdated.",
-                "💡: Confidentiality: You sanitize a contract (remove names/amounts) before asking a public AI to summarize it.",
-                "💡: Compliance: You ensure the AI usage doesn't violate GDPR data processing rules.",
-                "💡: Audit Trail: You save the prompt and output used to estimate a bad debt provision.",
-                "💡: Bias: You ask AI for 'potential risks' in a forecast to ensure it isn't just being optimistic."
+                " : Verification: You double-check the tax rate AI used because it might be outdated.",
+                " : Confidentiality: You sanitize a contract (remove names/amounts) before asking a public AI to summarize it.",
+                " : Compliance: You ensure the AI usage doesn't violate GDPR data processing rules.",
+                " : Audit Trail: You save the prompt and output used to estimate a bad debt provision.",
+                " : Bias: You ask AI for 'potential risks' in a forecast to ensure it isn't just being optimistic."
             ],
             importance: [
-                "🚀 Trust is the currency of accounting; one hallucination can ruin reputation.",
-                "🚀 Client data privacy is a legal and ethical absolute.",
-                "🚀 Auditors will ask 'How was this number derived?'; 'The AI did it' is not an answer.",
-                "🚀 It prevents 'Black Box' accounting where no one understands the numbers.",
-                "🚀 It ensures we stay on the right side of evolving AI regulations."
+                " Trust is the currency of accounting; one hallucination can ruin reputation.",
+                " Client data privacy is a legal and ethical absolute.",
+                " Auditors will ask 'How was this number derived?'; 'The AI did it' is not an answer.",
+                " It prevents 'Black Box' accounting where no one understands the numbers.",
+                " It ensures we stay on the right side of evolving AI regulations."
             ]
         },
         7: { // Apps
             summary: "Use the tools you have: Excel for formulas, Outlook for emails, Word for summaries, and specialized tools for SAP retrieval.",
             examples: [
-                "💡: Excel: 'Write a formula to extract the domain from these emails.'",
-                "💡: Outlook: 'Summarize this 20-email thread about the budget dispute.'",
-                "💡: Word: 'Convert this meeting transcript into formal meeting minutes.'",
-                "💡: PowerPoint: 'Create a slide deck based on this financial report document.'",
-                "💡: Teams: 'What were the action items assigned to me in the last meeting?'"
+                " : Excel: 'Write a formula to extract the domain from these emails.'",
+                " : Outlook: 'Summarize this 20-email thread about the budget dispute.'",
+                " : Word: 'Convert this meeting transcript into formal meeting minutes.'",
+                " : PowerPoint: 'Create a slide deck based on this financial report document.'",
+                " : Teams: 'What were the action items assigned to me in the last meeting?'"
             ],
             importance: [
-                "🚀 These are tools we already have access to, making adoption easy.",
-                "🚀 They integrate seamlessly with our existing data (documents, emails).",
-                "🚀 They reduce the 'switching cost' of moving between different apps.",
-                "🚀 They provide 'enterprise-grade' security compared to random web tools.",
-                "🚀 They significantly speed up the 'last mile' of finance: communication and presentation."
+                " These are tools we already have access to, making adoption easy.",
+                " They integrate seamlessly with our existing data (documents, emails).",
+                " They reduce the 'switching cost' of moving between different apps.",
+                " They provide 'enterprise-grade' security compared to random web tools.",
+                " They significantly speed up the 'last mile' of finance: communication and presentation."
             ]
         },
         8: { // Simulation
             summary: "Test your skills in AR (Collections), AP (Process), GL (Classification), and Audit (SoD) to see AI in action.",
             examples: [
-                "💡: AR: Drafting a sensitive email to a long-time client who stopped paying.",
-                "💡: AP: Investigating why a vendor payment was rejected by the bank.",
-                "💡: GL: Spotting that 'Software Licenses' was booked to 'Hardware Capex'.",
-                "💡: Audit: Identifying a user who approved their own purchase requisition.",
-                "💡: Tax: Summarizing the impact of a new sales tax change in a specific state."
+                " : AR: Drafting a sensitive email to a long-time client who stopped paying.",
+                " : AP: Investigating why a vendor payment was rejected by the bank.",
+                " : GL: Spotting that 'Software Licenses' was booked to 'Hardware Capex'.",
+                " : Audit: Identifying a user who approved their own purchase requisition.",
+                " : Tax: Summarizing the impact of a new sales tax change in a specific state."
             ],
             importance: [
-                "🚀 Theory is good, but practice builds muscle memory.",
-                "🚀 Simulations allow for failure in a safe environment.",
-                "🚀 It demonstrates the real-world nuance: AI gives a draft, you refine the tone.",
-                "🚀 It proves that AI can handle multi-step reasoning (read data -> apply rule -> output).",
-                "🚀 It builds confidence for tackling real live data."
+                " Theory is good, but practice builds muscle memory.",
+                " Simulations allow for failure in a safe environment.",
+                " It demonstrates the real-world nuance: AI gives a draft, you refine the tone.",
+                " It proves that AI can handle multi-step reasoning (read data -> apply rule -> output).",
+                " It builds confidence for tackling real live data."
             ]
         },
         9: { // Resources
             summary: "Keep learning using Viva Learning, Prompt Guides, and internal communities.",
             examples: [
-                "💡: Viva Learning: 'Introduction to Generative AI for Finance Professionals'.",
-                "💡: Prompt Guide: 'The 50 Best Prompts for Financial Analysts'.",
-                "💡: Internal Wiki: 'Our Company Policy on AI Data Privacy'.",
-                "💡: Microsoft Learn: 'Advanced Excel Automation with Copilot'.",
-                "💡: Community: The 'AI Champions' Teams channel for sharing tips."
+                " : Viva Learning: 'Introduction to Generative AI for Finance Professionals'.",
+                " : Prompt Guide: 'The 50 Best Prompts for Financial Analysts'.",
+                " : Internal Wiki: 'Our Company Policy on AI Data Privacy'.",
+                " : Microsoft Learn: 'Advanced Excel Automation with Copilot'.",
+                " : Community: The 'AI Champions' Teams channel for sharing tips."
             ],
             importance: [
-                "🚀 AI changes fast; continuous learning is mandatory.",
-                "🚀 Standardized resources ensure everyone plays by the same rules.",
-                "🚀 Self-paced learning fits into busy finance schedules.",
-                "🚀 Community learning helps spread 'best practices' viral-style.",
-                "🚀 It bridges the gap between 'knowing AI exists' and 'using it daily'."
+                " AI changes fast; continuous learning is mandatory.",
+                " Standardized resources ensure everyone plays by the same rules.",
+                " Self-paced learning fits into busy finance schedules.",
+                " Community learning helps spread 'best practices' viral-style.",
+                " It bridges the gap between 'knowing AI exists' and 'using it daily'."
             ]
         },
         10: { // Conclusion
             summary: "Training Complete. Time saved is value gained. Start small today to build the future.",
             examples: [
-                "💡: Start today: Use AI to summarize one long document.",
-                "💡: Next week: Automate one weekly report draft.",
-                "💡: Next month: Share a successful prompt with the team.",
-                "💡: Value add: Spend the saved hour analyzing margins instead of typing.",
-                "💡: Future proof: Become the 'AI expert' in your specific finance team."
+                " : Start today: Use AI to summarize one long document.",
+                " : Next week: Automate one weekly report draft.",
+                " : Next month: Share a successful prompt with the team.",
+                " : Value add: Spend the saved hour analyzing margins instead of typing.",
+                " : Future proof: Become the 'AI expert' in your specific finance team."
             ],
             importance: [
-                "🚀 Momentum matters; small wins build the habit.",
-                "🚀 The goal isn't just 'saving time', it's 'reinvesting time'.",
-                "🚀 It reinforces that this is a journey, not a one-time seminar.",
-                "🚀 It empowers individuals to take ownership of their efficiency.",
-                "🚀 It ends on a high note: You are in control of your career evolution."
+                " Momentum matters; small wins build the habit.",
+                " The goal isn't just 'saving time', it's 'reinvesting time'.",
+                " It reinforces that this is a journey, not a one-time seminar.",
+                " It empowers individuals to take ownership of their efficiency.",
+                " It ends on a high note: You are in control of your career evolution."
             ]
         }
     };
@@ -358,7 +358,7 @@ const ChatbotComponent = ({ currentSlide, slideTitle }) => {
 
         // 1. PRIORITY: Summarize
         if (q.includes('summary') || q.includes('summarize') || q.includes('takeaway') || q.includes('key point') || q.includes('slide')) {
-            return `📝 **Summary:**\n\n${currentData.summary}`;
+            return ` **Summary:**\n\n${currentData.summary}`;
         }
 
         // 2. PRIORITY: Examples (Return a random one from the 5+ list)
@@ -382,27 +382,27 @@ const ChatbotComponent = ({ currentSlide, slideTitle }) => {
 
         // 5. Greetings
         if (q.match(/\b(hi|hello|hey|greetings|good morning|good afternoon|howdy|sup)\b/)) {
-            return "Hi there! 👋 I'm your AI Training Assistant.\n\nI'm here to help you navigate the future of finance.\n\n**Ask me anything about the training, specific tools, or accounting scenarios!**";
+            return "Hi there! I'm your AI Training Assistant.\n\nI'm here to help you navigate the future of finance.\n\n**Ask me anything about the training, specific tools, or accounting scenarios!**";
         }
 
         // 6. Farewells
         if (q.match(/\b(bye|goodbye|see ya|later|cya)\b/)) {
-            return "Goodbye! 👋\n\nGood luck with your training. I'll be here if you have more questions later!";
+            return "Goodbye! \n\nGood luck with your training. I'll be here if you have more questions later!";
         }
 
         // 7. Specific Help / Confusion
         if (q.includes('help') || q.includes('confused') || q.includes('understand') || q.includes('lost')) {
-            return "No worries! Accounting AI is a shift, but it's designed to help you. 🧠\n\nWe're moving from manual typing to **strategic thinking**.\n\nTry asking:\n• 'How does AI help with audits?'\n• 'What is a good prompt?'\n• 'Is my job safe?'";
+            return "No worries! Accounting AI is a shift, but it's designed to help you. \n\nWe're moving from manual typing to **strategic thinking**.\n\nTry asking:\n• 'How does AI help with audits?'\n• 'What is a good prompt?'\n• 'Is my job safe?'";
         }
 
         // 8. Generic Fallback - Updated with Happy Emoji and slide context
-        return `That's a great question! 😊\n\nRegarding **${slideTitle}**, here is the key concept:\n${context}\n\nIf you need a specific definition or example (like "What is OCR?"), just ask!`;
+        return `That's a great question! \n\nRegarding **${slideTitle}**, here is the key concept:\n${context}\n\nIf you need a specific definition or example (like "What is OCR?"), just ask!`;
     };
 
     const quickQuestions = [
-        "Summarize this slide 📝",
-        "Give me a real-world example 💡",
-        "Why is this important? 🚀"
+        "Summarize this slide ",
+        "Give me a real-world example ",
+        "Why is this important? "
     ];
 
     return (
@@ -431,7 +431,7 @@ const ChatbotComponent = ({ currentSlide, slideTitle }) => {
                                 <div className="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto">
                                     <Bot size={24} />
                                 </div>
-                                <p>👋 <strong>Hi there!</strong> I'm your AI Training Assistant.</p>
+                                <p> <strong>Hi there!</strong> I'm your AI Training Assistant.</p>
                                 <p>I can help you master <strong>"{slideTitle}"</strong>. What would you like to know?</p>
                             </div>
                         )}
@@ -461,7 +461,7 @@ const ChatbotComponent = ({ currentSlide, slideTitle }) => {
                     </div>
 
                     {/* Quick Actions */}
-                    <div className="px-4 pt-2 bg-slate-50 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                    <div className="px-4 pt-2 bg-slate-50 flex gap-2 overflow-x-auto pb-2 scrollbar-hide shrink-0">
                         {quickQuestions.map((q, i) => (
                             <button
                                 key={i}
@@ -636,7 +636,7 @@ const App = () => {
       { title: "New Mindset", desc: "AI as a Partner: Embrace Collaboration", icon: Bot, color: "text-purple-600 bg-purple-100" },
       { title: "Effective Prompting", desc: "Learn to ask clear questions for best answers.", icon: MessageSquare, color: "text-blue-600 bg-blue-100" },
       { title: "Smarter Workflows", desc: "Streamline work; automate the right places.", icon: Settings, color: "text-amber-600 bg-amber-100" },
-      { title: "Responsible AI", desc: "Safety, security, and compliance.", icon: Lock, color: "text-green-600 bg-green-100" }
+      { title: "Responsible AI Usage", desc: "Safety, security, and compliance.", icon: Lock, color: "text-green-600 bg-green-100" }
     ];
 
     return (
@@ -682,12 +682,12 @@ const App = () => {
       if (isPaused) return;
 
       if (item.type === choice) {
-        setFeedback("Correct! ✅");
+        setFeedback("Correct! ");
         setFeedbackType("success");
         setExplanation(item.reason);
         setIsPaused(true);
       } else {
-        setFeedback("Try again! ❌");
+        setFeedback("Try again! ");
         setFeedbackType("error");
         setExplanation("Hint: Consider if this task requires emotional intelligence (Human) or high-speed data processing (AI).");
       }
@@ -847,17 +847,17 @@ const App = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div className="p-3 bg-red-50 border border-red-200 rounded-lg min-h-[80px] flex flex-col justify-center">
-                <span className="text-red-600 font-bold block mb-1 text-xs uppercase tracking-wide">❌ Bad Request</span>
+                <span className="text-red-600 font-bold block mb-1 text-xs uppercase tracking-wide"> Bad Request</span>
                 <p className="text-base text-slate-800 italic">"{steps[step].bad}"</p>
               </div>
               <div className="p-3 bg-green-50 border border-green-200 rounded-lg ring-2 ring-green-400 shadow-sm min-h-[80px] flex flex-col justify-center">
-                <span className="text-green-700 font-bold block mb-1 text-xs uppercase tracking-wide">✅ Good Request</span>
+                <span className="text-green-700 font-bold block mb-1 text-xs uppercase tracking-wide"> Good Request</span>
                 <p className="text-base text-slate-900 italic">"{steps[step].good}"</p>
               </div>
             </div>
 
             <div className="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-500 mb-6 shrink-0">
-               <p className="text-blue-800 font-medium text-sm">💡 {steps[step].tip}</p>
+               <p className="text-blue-800 font-medium text-sm"> {steps[step].tip}</p>
             </div>
 
             <div className="flex justify-between shrink-0">
@@ -955,7 +955,7 @@ const App = () => {
                ) : (
                    // Default Empty State
                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center h-full flex flex-col justify-center items-center">
-                       <p className="text-slate-500 italic text-xs">💡 Hover over any step above to see details.</p>
+                       <p className="text-slate-500 italic text-xs"> Hover over any step above to see details.</p>
                    </div>
                )}
            </div>
@@ -965,24 +965,46 @@ const App = () => {
 
   // --- Slide 7: Responsible AI ---
   // PolicyCard component for responsible AI section - Lighter design
-  const PolicyCard = ({ icon: Icon, title, subTitle, concept, standard, color }) => (
-    <div className={`p-4 rounded-xl border border-transparent transition-all duration-300 cursor-default flex flex-col justify-start ${color.bg_hover} hover:shadow-lg hover:-translate-y-0.5 hover:ring-2 hover:ring-offset-1 ${color.ring_hover}`}>
-        <div className={`flex items-center mb-2 shrink-0 border-l-4 ${color.border_left} pl-2`}>
-            <Icon className={`mr-2 w-5 h-5 ${color.text}`} />
-            <h3 className="font-bold text-base text-slate-800">{title}</h3>
-            <span className={`text-xs ml-2 font-medium ${color.text} opacity-80`}>{subTitle}</span>
+  const PolicyCard = ({ icon: Icon, title, subTitle, concept, standard, color, hoverDetail }) => (
+    <div className={`group relative p-3 rounded-xl border border-transparent transition-all duration-300 cursor-default flex flex-col justify-start bg-white ${color.bg_hover} hover:shadow-md border-gray-100 hover:z-50 h-full`}>
+        <div className={`flex items-center mb-1 shrink-0 border-l-4 ${color.border_left} pl-2`}>
+            <Icon className={`mr-2 w-4 h-4 ${color.text}`} />
+            <h3 className="font-bold text-sm text-slate-800">{title}</h3>
+            <span className={`text-[10px] ml-2 font-medium ${color.text} opacity-80`}>{subTitle}</span>
         </div>
         {/* Removing inner boxes to reduce bulkiness, using simple text */}
-        <div className="space-y-2 text-xs pl-2 pt-1 flex-grow">
+        <div className="space-y-1 text-[10px] pl-2 pt-1 flex-grow">
             <div>
-                <span className={`font-bold ${color.text} text-[10px] uppercase tracking-wider mr-1`}>Concept:</span>
+                <span className={`font-bold ${color.text} uppercase tracking-wider mr-1`}>Concept:</span>
                 <span className="text-slate-700 leading-snug">{concept}</span>
             </div>
             <div>
-                <span className={`font-bold ${color.text} text-[10px] uppercase tracking-wider mr-1`}>Standard:</span>
+                <span className={`font-bold ${color.text} uppercase tracking-wider mr-1`}>Standard:</span>
                 <span className="text-slate-700 leading-snug">{standard}</span>
             </div>
         </div>
+
+        {/* Hover Detail Overlay - Popover Style (No Scroll) */}
+        {hoverDetail && (
+            <>
+                <div className="absolute top-2 right-2 text-slate-300 opacity-100 group-hover:opacity-0 transition-opacity">
+                    <HelpCircle size={14} />
+                </div>
+                {/* Popup Container - Shifted Right so user sees original card edge */}
+                <div className="absolute top-[-10%] left-8 w-[105%] h-auto min-h-[120%] bg-white p-4 rounded-xl shadow-2xl border border-slate-200 opacity-0 group-hover:opacity-100 transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto transform origin-top-left scale-95 group-hover:scale-100">
+                    <div className="flex flex-col mb-2 border-b pb-2 border-slate-100">
+                        <div className="flex items-center justify-between">
+                            <p className={`font-bold text-[9px] ${color.text} uppercase tracking-wide opacity-75`}>Extended Detail For:</p>
+                            <Icon className={`w-4 h-4 ${color.text} opacity-50`} />
+                        </div>
+                        <p className={`font-bold text-sm text-slate-800 mt-1`}>{title}</p>
+                    </div>
+                    <div className="text-[10px] text-slate-700 space-y-2 leading-relaxed">
+                        {hoverDetail}
+                    </div>
+                </div>
+            </>
+        )}
     </div>
   );
 
@@ -994,47 +1016,97 @@ const App = () => {
         purple: { text: "text-purple-600", border_left: "border-purple-500", ring_hover: "hover:ring-purple-500", bg_hover: "hover:bg-purple-100/70" },
     };
 
-    const policies = [
-        { title: "Human Verification", subTitle: "(The Review)", concept: "AI creates the draft; we create the approval.", standard: "We treat AI as a data provider, not a decision maker. The human maintains final sign-off authority.", color: policyColors.green },
-        { title: "Data Confidentiality", subTitle: "(The Privacy)", concept: "Public AI tools store and learn from whatever you type. Customer trust is our most important asset.", standard: "Never put sensitive company or customer information into public AI tools.", color: policyColors.red },
-        { title: "Regulatory Compliance", subTitle: "(The Law)", concept: "We can be fast, but we must be legal.", standard: "All AI work must follow company policy, tax laws, and regulations (like SOX).", color: policyColors.blue },
-        { title: "Audit Trails", subTitle: "(The Proof)", concept: "If we can't prove it, it didn't happen.", standard: "We track exactly when and how we use AI. We keep clear records for future audits.", color: policyColors.purple },
+    // Group 1: The SOX Control Zone
+    const soxPolicies = [
+        { title: "Human Verification", subTitle: "(The Review)", concept: "AI creates the draft; we create the approval.", standard: "We treat AI as a data provider, not a decision maker. The human maintains final sign-off authority.", color: policyColors.green, icon: CheckCircle },
+        { title: "Audit Trails", subTitle: "(The Proof)", concept: "If we can't prove it, it didn't happen.", standard: "We track exactly when and how we use AI. We keep clear records for future audits.", color: policyColors.purple, icon: Search },
+    ];
+
+    // Group 2: Data & Compliance Protocols
+    const generalPolicies = [
+        {
+            title: "Data Confidentiality",
+            subTitle: "(The Privacy)",
+            concept: "Public AI tools store and learn from whatever you type.",
+            standard: "Never put sensitive company or customer information into public AI tools.",
+            color: policyColors.red,
+            icon: Lock,
+            hoverDetail: (
+                <>
+                    <p className="mb-1 font-semibold">When using any free AI tool, data must be fully cleansed:</p>
+                    <ul className="list-disc list-inside space-y-1">
+                        <li><strong>No Company Info:</strong> No product designs, source code, strategy, financials, or internal comms may be entered.</li>
+                        <li><strong>No PII:</strong> Never share info related to employees, customers, or partners.</li>
+                        <li><strong>Sanitize:</strong> De-identify all data so it cannot be traced back to us.</li>
+                    </ul>
+                </>
+            )
+        },
+        { title: "Governance and Compliance", subTitle: "(The Law)", concept: "We can be fast, but we must be legal.", standard: "All AI work must follow company policy, tax laws, and regulations (like SOX).", color: policyColors.blue, icon: BookOpen },
     ];
 
     return (
       <SlideContainer>
            <h2 className="text-2xl font-bold text-slate-800 mb-2 text-center shrink-0">Responsible AI Usage</h2>
 
-           {/* Policy Cards Grid - Updated spacing and padding */}
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-6xl mx-auto w-full flex-grow min-h-0">
-             {policies.map((p, i) => (
-                 <PolicyCard key={i} icon={p.title === 'Human Verification' ? CheckCircle : p.title === 'Data Confidentiality' ? Lock : p.title === 'Regulatory Compliance' ? BookOpen : Search} {...p} />
-             ))}
-           </div>
+           <div className="flex flex-col gap-2 w-full max-w-6xl mx-auto flex-grow overflow-hidden p-1 h-full">
 
-           {/* Bias Watch Section (Expanded size) */}
-           <div className="mt-3 bg-amber-50 p-4 rounded-xl border border-amber-200 w-full max-w-6xl mx-auto shrink-0 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 mb-2">
-              <h3 className="font-bold text-sm text-amber-800 mb-2 flex items-center justify-center uppercase tracking-wide border-b border-amber-200 pb-2">
-                  <AlertTriangle className="w-5 h-5 mr-2"/> Be Aware: Common AI Problems
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-xs text-amber-900 leading-snug">
-                  <div>
-                      <strong className="block mb-1 text-amber-950 font-bold text-sm">Common Issues</strong>
-                      <ul className="list-disc list-inside ml-1 space-y-1">
-                          <li>AI often agrees ("yes") even if other answers are possible.</li>
-                          <li>It may forget diverse viewpoints.</li>
-                          <li>It tends to repeat common ideas instead of generating new ones.</li>
-                      </ul>
+               {/* Main Content Grid: Side by Side on Large Screens */}
+               <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 flex-grow min-h-0">
+
+                   {/* The SOX Control Zone */}
+                   <div className="bg-indigo-50/50 rounded-xl p-2 border border-indigo-100 flex flex-col h-full overflow-hidden">
+                       <h3 className="font-bold text-sm text-indigo-800 mb-2 flex items-center uppercase tracking-wide shrink-0">
+                           <Shield className="w-4 h-4 mr-2"/> The SOX Control Zone
+                       </h3>
+                       <div className="flex flex-col gap-2 flex-grow overflow-hidden">
+                           {soxPolicies.map((p, i) => (
+                               <div key={i} className="flex-1 min-h-0">
+                                   <PolicyCard {...p} />
+                               </div>
+                           ))}
+                       </div>
+                   </div>
+
+                   {/* General Protocols */}
+                   <div className="bg-slate-50/50 rounded-xl p-2 border border-slate-200 flex flex-col h-full overflow-hidden">
+                       <h3 className="font-bold text-sm text-slate-700 mb-2 flex items-center uppercase tracking-wide shrink-0">
+                           <FileText className="w-4 h-4 mr-2"/> Data & Compliance Protocols
+                       </h3>
+                       <div className="flex flex-col gap-2 flex-grow overflow-hidden">
+                           {generalPolicies.map((p, i) => (
+                               <div key={i} className="flex-1 min-h-0">
+                                   <PolicyCard {...p} />
+                               </div>
+                           ))}
+                       </div>
+                   </div>
+               </div>
+
+               {/* Bias Watch Section - Compact Version */}
+               <div className="bg-amber-50 p-3 rounded-xl border border-amber-200 shrink-0 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 mt-1">
+                  <h3 className="font-bold text-xs text-amber-800 mb-1 flex items-center justify-center uppercase tracking-wide border-b border-amber-200 pb-1">
+                      <AlertTriangle className="w-3 h-3 mr-1"/> Be Aware: Common AI Problems
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-[10px] text-amber-900 leading-snug">
+                      <div>
+                          <strong className="block mb-0.5 text-amber-950 font-bold text-[11px]">Common Issues</strong>
+                          <ul className="list-disc list-inside ml-1 space-y-0.5">
+                              <li>AI often agrees ("yes") even if other answers are possible.</li>
+                              <li>It may forget diverse viewpoints.</li>
+                              <li>It tends to repeat common ideas instead of generating new ones.</li>
+                          </ul>
+                      </div>
+                      <div>
+                          <strong className="block mb-0.5 text-amber-950 font-bold text-[11px]">How to Reduce Bias</strong>
+                          <ul className="list-disc list-inside ml-1 space-y-0.5">
+                              <li>Ask AI for multiple perspectives or "pros and cons".</li>
+                              <li>Use simple, clear neutral language in prompts.</li>
+                              <li>Explicitly ask for answers that include diverse groups.</li>
+                          </ul>
+                      </div>
                   </div>
-                  <div>
-                      <strong className="block mb-1 text-amber-950 font-bold text-sm">How to Reduce Bias</strong>
-                      <ul className="list-disc list-inside ml-1 space-y-1">
-                          <li>Ask AI for multiple perspectives or "pros and cons".</li>
-                          <li>Use simple, clear neutral language in prompts.</li>
-                          <li>Explicitly ask for answers that include diverse groups.</li>
-                      </ul>
-                  </div>
-              </div>
+               </div>
            </div>
       </SlideContainer>
     );
@@ -1118,18 +1190,18 @@ const App = () => {
     const [aiResponse, setAiResponse] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    // Scenario Data - UPDATED TO 2025 & DATES
+    // Scenario Data - UPDATED TO REALISTIC DATES (Ref: 11.25.2025)
     const scenarios = {
       ar: {
         title: "AR: Credit Request & Past Due",
         data: [
-            { inv: "INV-2001", date: "2025-01-20", amount: "$12,500", days: "45", status: "PAST DUE" },
-            { inv: "INV-2045", date: "2025-03-25", amount: "$18,000", days: "10", status: "Current" },
-            { inv: "INV-2102", date: "2025-04-01", amount: "$15,000", days: "5", status: "Current" },
+            { inv: "INV-2001", date: "2025-09-10", amount: "$12,500", days: "76", status: "PAST DUE" },
+            { inv: "INV-2045", date: "2025-11-15", amount: "$18,000", days: "10", status: "Current" },
+            { inv: "INV-2102", date: "2025-11-20", amount: "$15,000", days: "5", status: "Current" },
         ],
         task: "Sales is asking for a credit bump. Reply nicely but firmly about the 45-day overdue invoices.",
         aiPrompt: "Draft a polite, friendly email to sales about the 45-day overdue balance before approving credit.",
-        aiResult: "Subject: Re: Credit Limit Increase - TechStar Inc\n\nHi Sales Team,\n\nI'd be happy to help review the credit limit increase for TechStar to support their growth.\n\nHowever, I noticed they have invoices outstanding for 45 days (INV-2001). To protect our cash flow and get this approved quickly, could you give them a nudge on payment?\n\nOnce that's cleared, we can proceed with the limit increase immediately!\n\nThanks,\nAccounting"
+        aiResult: "Subject: Re: Credit Limit Increase - TechStar Inc\n\nHi Sales Team,\n\nI'd be happy to help review the credit limit increase for TechStar to support their growth.\n\nHowever, I noticed they have invoices outstanding for over 45 days (INV-2001). To protect our cash flow and get this approved quickly, could you give them a nudge on payment?\n\nOnce that's cleared, we can proceed with the limit increase immediately!\n\nThanks,\nAccounting"
       },
       ap: {
         title: "AP: Invoices Sent to Wrong Email",
@@ -1145,9 +1217,9 @@ const App = () => {
       gl: {
         title: "GL: Profit Center Mismatch",
         data: [
-            { je: "JE-101", account: "Marketing Ads", pc: "IT-Dept", amount: "$5,000", month: "Mar 2025" },
-            { je: "JE-102", account: "Server Hosting", pc: "IT-Dept", amount: "$12,000", month: "Mar 2025" },
-            { je: "JE-103", account: "R&D Supplies", pc: "Sales", amount: "$2,500", month: "Mar 2025" },
+            { je: "JE-101", account: "Marketing Ads", pc: "IT-Dept", amount: "$5,000", month: "Nov 2025" },
+            { je: "JE-102", account: "Server Hosting", pc: "IT-Dept", amount: "$12,000", month: "Nov 2025" },
+            { je: "JE-103", account: "R&D Supplies", pc: "Sales", amount: "$2,500", month: "Nov 2025" },
         ],
         task: "Transactions are booking to the wrong profit centers (e.g., Marketing cost in IT). Use AI to scan the entries for logical mismatches.",
         aiPrompt: "Scan journal entries for mismatched Account vs Profit Center logic.",
@@ -1156,9 +1228,9 @@ const App = () => {
       audit: {
         title: "Audit: Segregation of Duties",
         data: [
-            { id: "REQ-001", requester: "J. Smith", approver: "S. Johnson", amount: "$5,000", date: "Mar 2025" },
-            { id: "REQ-002", requester: "M. Doe", approver: "S. Johnson", amount: "$2,500", date: "Mar 2025" },
-            { id: "REQ-003", requester: "A. Williams", approver: "A. Williams", amount: "$9,500", date: "Mar 2025" },
+            { id: "REQ-001", requester: "J. Smith", approver: "S. Johnson", amount: "$5,000", date: "Nov 2025" },
+            { id: "REQ-002", requester: "M. Doe", approver: "S. Johnson", amount: "$2,500", date: "Nov 2025" },
+            { id: "REQ-003", requester: "A. Williams", approver: "A. Williams", amount: "$9,500", date: "Nov 2025" },
         ],
         task: "Ensure that the person requesting a payment is NOT the same person approving it. Identify the SOX violation.",
         aiPrompt: "Run SOX Control Test: SoD Check for same Requester and Approver.",
@@ -1219,7 +1291,7 @@ const App = () => {
                  <div className="bg-gray-900 rounded-xl overflow-hidden flex-grow shadow-2xl flex flex-col min-h-[150px] lg:min-h-0">
                      <div className="bg-gray-800 p-2 flex items-center gap-2 border-b border-gray-700 shrink-0">
                          <Terminal size={14} className="text-green-400" />
-                         <span className="text-gray-400 font-mono text-xs">System_Data_View (Mar 2025 Data)</span>
+                         <span className="text-gray-400 font-mono text-xs">System_Data_View (Nov 2025 Data)</span>
                      </div>
 
                      <div className="p-3 overflow-y-auto flex-grow">
