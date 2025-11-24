@@ -69,22 +69,266 @@ const ChatbotComponent = ({ currentSlide, slideTitle }) => {
         ));
     };
 
-    // Comprehensive Context for Every Slide
+    // --- RICH DATA STRUCTURE FOR SLIDE CONTEXT ---
+    // Stores 5+ specific examples for Summary, Real World, and Importance per slide.
+    const slideContentData = {
+        0: { // Intro
+            summary: "We are upgrading finance from manual data entry to strategic insight. Think of AI as an infinite capacity assistant that handles the boring stuff so you can focus on value.",
+            examples: [
+                "📉 -> 📈: Instead of typing invoice numbers, you scan a PDF and AI fills the SAP fields automatically.",
+                "💡: Instead of manually categorizing expenses, AI suggests 'Travel' based on the vendor 'Uber'.",
+                "💡: You ask 'What was our T&E spend last Q3?' and get an instant chart without running a report.",
+                "💡: AI flags a $50,000 payment to a new vendor for manual review before it goes out.",
+                "💡: Drafting a policy update email to the whole company in 30 seconds instead of 30 minutes."
+            ],
+            importance: [
+                "🚀 It stops us from being 'data janitors' and makes us 'data architects'.",
+                "🚀 It handles the sheer volume of data that is becoming impossible for humans to manage manually.",
+                "🚀 It reduces the 'fatigue factor' where human eyes miss errors after staring at spreadsheets for hours.",
+                "🚀 It allows the finance team to scale with the company without just hiring more bodies.",
+                "🚀 It frees up mental energy for the complex problem-solving that actually drives business value."
+            ]
+        },
+        1: { // Why AI Matters
+            summary: "AI upgrades your role, speeds up the close, acts as a trusted advisor, catches mistakes 24/7, and ensures compliance.",
+            examples: [
+                "💡: Closing the books: AI matches 99% of intercompany transactions automatically, saving days.",
+                "💡: Compliance: AI scans thousands of transactions against new lease accounting standards instantly.",
+                "💡: Advisory: You ask AI to analyze customer churn vs. discounts given, revealing a bad strategy.",
+                "💡: Error Catching: It flags a duplicate invoice that had a slightly different invoice number format (INV-01 vs INV01).",
+                "💡: Speed: Generating a preliminary board deck with charts in minutes instead of hours."
+            ],
+            importance: [
+                "🚀 Speed to insight: Management needs numbers *now*, not in 3 weeks.",
+                "🚀 Risk reduction: 100% sampling vs random sampling in audit.",
+                "🚀 Cost savings: Preventing overpayments and fraud adds directly to the bottom line.",
+                "🚀 Employee satisfaction: Nobody likes data entry; removing it reduces burnout.",
+                "🚀 Credibility: Fewer manual errors means the business trusts the finance numbers more."
+            ]
+        },
+        2: { // Core Modules
+            summary: "The 4 pillars of this training are: 1. Mindset (Partner), 2. Prompting (The Ask), 3. Workflows (The Process), and 4. Responsibility (The Ethics).",
+            examples: [
+                "💡: Mindset: Viewing AI as a 'junior analyst' to delegate research to, not a magic button.",
+                "💡: Prompting: Learning to ask 'Find the outlier' instead of just 'Show me the data'.",
+                "💡: Workflows: Setting up an auto-forward rule for invoices to the AI processor.",
+                "💡: Responsibility: Checking the AI's tax memo against the actual IRS code.",
+                "💡: Integration: Using AI to connect data between Salesforce and NetSuite without code."
+            ],
+            importance: [
+                "🚀 A tool is only as good as the user; training ensures we use it safely.",
+                "🚀 Bad prompts lead to bad financial advice; precision is key in accounting.",
+                "🚀 Understanding workflows prevents 'automation silos' where only one person knows how it works.",
+                "🚀 Responsible use protects the company from data leaks and reputational damage.",
+                "🚀 It provides a structured learning path so the team isn't overwhelmed."
+            ]
+        },
+        3: { // Mindset Game
+            summary: "AI handles high-volume, repetitive tasks (Data Entry). Humans handle high-value, strategic tasks (Empathy, Judgment).",
+            examples: [
+                "🤖 AI Task: Sorting 5,000 bank transaction lines by category.",
+                "🧠 Human Task: Deciding if a 'Miscellaneous' expense is actually a bribe risk.",
+                "🤖 AI Task: Calculating depreciation schedules for 200 assets.",
+                "🧠 Human Task: Negotiating a payment plan with a struggling long-term client.",
+                "🤖 AI Task: Translating foreign subsidiary financial statements."
+            ],
+            importance: [
+                "🚀 Knowing the difference prevents us from trusting AI with 'judgment calls' it can't make.",
+                "🚀 It highlights our value: Empathy, Ethics, and Strategy cannot be automated.",
+                "🚀 It prevents fear: We see AI as taking the 'robot work' out of the human.",
+                "🚀 It improves efficiency: We don't waste human brainpower on rote matching.",
+                "🚀 It clarifies accountability: The human is always the final signer."
+            ]
+        },
+        4: { // Prompting
+            summary: "To get good answers, follow the 4 Rules: 1. Be Specific, 2. Give a Role, 3. Set a Goal, 4. Choose a Format.",
+            examples: [
+                "💡: Role: 'Act as a Credit Controller. Write a polite dunning email for a 30-day overdue account.'",
+                "💡: Context: 'Given we are a SaaS company, analyze these metrics...'",
+                "💡: Goal: 'I need to reduce T&E spend. Analyze this report and find the top 3 areas to cut.'",
+                "💡: Format: 'Output the answer as a CSV table I can paste into Excel.'",
+                "💡: Constraint: 'Explain this variance to a non-finance manager using simple analogies.'"
+            ],
+            importance: [
+                "🚀 AI models are literal; vague instructions produce generic, useless nonsense.",
+                "🚀 Good prompting saves time by reducing the need for follow-up questions.",
+                "🚀 It unlocks advanced capabilities; giving a 'Role' makes the AI access specific domain knowledge.",
+                "🚀 Standardized prompting ensures consistent results across the team.",
+                "🚀 It transforms the AI from a search engine into a creative consultant."
+            ]
+        },
+        5: { // Workflows
+            summary: "Don't just automate everything. 1. Find Slow Spots, 2. Clean Up Steps, 3. Place Automation (Assistant vs Engine), 4. Human Review.",
+            examples: [
+                "💡: Slow Spot: Manually keying data from PDF purchase orders.",
+                "💡: Clean Up: Standardizing vendor names (e.g., 'IBM' vs 'I.B.M.') before analysis.",
+                "💡: Assistant Mode: Using Copilot to draft the narrative for the board pack.",
+                "💡: Engine Mode: A background script that auto-matches receipts to credit card transactions.",
+                "💡: Review: A human checking the 'Low Confidence' matches flagged by the AI."
+            ],
+            importance: [
+                "🚀 Automating a broken process just creates broken data faster.",
+                "🚀 Identifying 'Slow Spots' ensures high ROI on automation efforts.",
+                "🚀 Distinguishing between Assistant and Engine modes helps pick the right tool.",
+                "🚀 The 'Review' step is the safety valve that prevents financial misstatements.",
+                "🚀 It creates a culture of continuous improvement rather than 'set and forget'."
+            ]
+        },
+        6: { // Responsible AI
+            summary: "Safety first: 1. Human Verification (Review everything), 2. Data Confidentiality (No PII in public), 3. Compliance (Follow rules), 4. Audit Trails (Track usage).",
+            examples: [
+                "💡: Verification: You double-check the tax rate AI used because it might be outdated.",
+                "💡: Confidentiality: You sanitize a contract (remove names/amounts) before asking a public AI to summarize it.",
+                "💡: Compliance: You ensure the AI usage doesn't violate GDPR data processing rules.",
+                "💡: Audit Trail: You save the prompt and output used to estimate a bad debt provision.",
+                "💡: Bias: You ask AI for 'potential risks' in a forecast to ensure it isn't just being optimistic."
+            ],
+            importance: [
+                "🚀 Trust is the currency of accounting; one hallucination can ruin reputation.",
+                "🚀 Client data privacy is a legal and ethical absolute.",
+                "🚀 Auditors will ask 'How was this number derived?'; 'The AI did it' is not an answer.",
+                "🚀 It prevents 'Black Box' accounting where no one understands the numbers.",
+                "🚀 It ensures we stay on the right side of evolving AI regulations."
+            ]
+        },
+        7: { // Apps
+            summary: "Use the tools you have: Excel for formulas, Outlook for emails, Word for summaries, and specialized tools for SAP retrieval.",
+            examples: [
+                "💡: Excel: 'Write a formula to extract the domain from these emails.'",
+                "💡: Outlook: 'Summarize this 20-email thread about the budget dispute.'",
+                "💡: Word: 'Convert this meeting transcript into formal meeting minutes.'",
+                "💡: PowerPoint: 'Create a slide deck based on this financial report document.'",
+                "💡: Teams: 'What were the action items assigned to me in the last meeting?'"
+            ],
+            importance: [
+                "🚀 These are tools we already have access to, making adoption easy.",
+                "🚀 They integrate seamlessly with our existing data (documents, emails).",
+                "🚀 They reduce the 'switching cost' of moving between different apps.",
+                "🚀 They provide 'enterprise-grade' security compared to random web tools.",
+                "🚀 They significantly speed up the 'last mile' of finance: communication and presentation."
+            ]
+        },
+        8: { // Simulation
+            summary: "Test your skills in AR (Collections), AP (Process), GL (Classification), and Audit (SoD) to see AI in action.",
+            examples: [
+                "💡: AR: Drafting a sensitive email to a long-time client who stopped paying.",
+                "💡: AP: Investigating why a vendor payment was rejected by the bank.",
+                "💡: GL: Spotting that 'Software Licenses' was booked to 'Hardware Capex'.",
+                "💡: Audit: Identifying a user who approved their own purchase requisition.",
+                "💡: Tax: Summarizing the impact of a new sales tax change in a specific state."
+            ],
+            importance: [
+                "🚀 Theory is good, but practice builds muscle memory.",
+                "🚀 Simulations allow for failure in a safe environment.",
+                "🚀 It demonstrates the real-world nuance: AI gives a draft, you refine the tone.",
+                "🚀 It proves that AI can handle multi-step reasoning (read data -> apply rule -> output).",
+                "🚀 It builds confidence for tackling real live data."
+            ]
+        },
+        9: { // Resources
+            summary: "Keep learning using Viva Learning, Prompt Guides, and internal communities.",
+            examples: [
+                "💡: Viva Learning: 'Introduction to Generative AI for Finance Professionals'.",
+                "💡: Prompt Guide: 'The 50 Best Prompts for Financial Analysts'.",
+                "💡: Internal Wiki: 'Our Company Policy on AI Data Privacy'.",
+                "💡: Microsoft Learn: 'Advanced Excel Automation with Copilot'.",
+                "💡: Community: The 'AI Champions' Teams channel for sharing tips."
+            ],
+            importance: [
+                "🚀 AI changes fast; continuous learning is mandatory.",
+                "🚀 Standardized resources ensure everyone plays by the same rules.",
+                "🚀 Self-paced learning fits into busy finance schedules.",
+                "🚀 Community learning helps spread 'best practices' viral-style.",
+                "🚀 It bridges the gap between 'knowing AI exists' and 'using it daily'."
+            ]
+        },
+        10: { // Conclusion
+            summary: "Training Complete. Time saved is value gained. Start small today to build the future.",
+            examples: [
+                "💡: Start today: Use AI to summarize one long document.",
+                "💡: Next week: Automate one weekly report draft.",
+                "💡: Next month: Share a successful prompt with the team.",
+                "💡: Value add: Spend the saved hour analyzing margins instead of typing.",
+                "💡: Future proof: Become the 'AI expert' in your specific finance team."
+            ],
+            importance: [
+                "🚀 Momentum matters; small wins build the habit.",
+                "🚀 The goal isn't just 'saving time', it's 'reinvesting time'.",
+                "🚀 It reinforces that this is a journey, not a one-time seminar.",
+                "🚀 It empowers individuals to take ownership of their efficiency.",
+                "🚀 It ends on a high note: You are in control of your career evolution."
+            ]
+        }
+    };
+
+    // --- EXTENSIVE KNOWLEDGE BASE (Definitions) ---
+    const knowledgeBase = [
+        {
+            keywords: ["ocr", "optical character", "scanning", "pdf to text"],
+            answer: "OCR (Optical Character Recognition) is the technology that converts images of text (like a scanned invoice) into machine-readable text. AI uses this to 'read' receipts and invoices automatically."
+        },
+        {
+            keywords: ["ml", "machine learning", "pattern", "learn"],
+            answer: "Machine Learning (ML) is how AI improves. Instead of being explicitly programmed for every rule, it looks at historical data (like past categorizations) to predict future ones."
+        },
+        {
+            keywords: ["nlp", "natural language", "understand text", "read email"],
+            answer: "NLP (Natural Language Processing) allows AI to understand and generate human language. This is what powers tools like Copilot to write emails or summarize contracts."
+        },
+        {
+            keywords: ["accrual", "month end", "close"],
+            answer: "For accruals, AI can analyze purchase orders and goods receipt logs to suggest precise accrual amounts, often catching items that haven't been invoiced yet."
+        },
+        {
+            keywords: ["flux", "variance analysis", "compare"],
+            answer: "AI helps with Flux Analysis by instantly comparing current actuals vs. budget or prior periods, and then generating a draft explanation based on underlying transaction details."
+        },
+        {
+            keywords: ["excel", "spreadsheet", "formula"],
+            answer: "In Excel, try asking Copilot to: 'Analyze this data for trends', 'Highlight outliers in red', or 'Write a formula to extract the domain from these email addresses'."
+        },
+        {
+            keywords: ["present", "stakeholder", "meeting", "explain"],
+            answer: "When presenting AI insights, always lead with your judgment. Say: 'The AI analysis suggests X, which I have verified and aligns with our strategy Y.'"
+        },
+        {
+            keywords: ["private", "public", "security", "confidential", "data", "protect"],
+            answer: "Public AI (like free ChatGPT) uses your data to train. Private AI (like Enterprise Copilot) keeps your data within your company's secure boundary. **Always use the Enterprise version for work.**"
+        },
+        {
+            keywords: ["job", "replace", "career", "future", "scared"],
+            answer: "AI won't replace accountants; accountants who use AI will replace those who don't. It shifts your value from 'data gathering' to 'data interpretation' and strategy."
+        },
+        {
+            keywords: ["hallucinate", "error", "wrong", "mistake", "lie", "fact check"],
+            answer: "AI can 'hallucinate' or make things up confidently. Always verify critical numbers against the source documents. You are the pilot; AI is just the co-pilot."
+        },
+        {
+            keywords: ["start", "begin", "first step", "how to"],
+            answer: "Start small! Pick one tedious task today—like summarizing a long email chain or drafting a routine vendor response—and use AI to do it. Then review the output."
+        },
+        {
+            keywords: ["prompt", "ask", "question", "input", "write"],
+            answer: "The quality of the answer depends on your prompt. Remember the 4 Rules: **Give it a Role, a Context, a Task, and a Format.** Example: 'Act as an Auditor, review this log, find anomalies, and list them in a table.'"
+        },
+        {
+            keywords: ["audit", "risk", "compliance", "sox"],
+            answer: "In Audit, AI is powerful for 100% sampling. Instead of checking 50 random invoices, AI can check 50,000 invoices for specific risk indicators like duplicate payments or weekend postings."
+        },
+        {
+            keywords: ["ar", "receivable", "collection"],
+            answer: "In AR, AI helps predict when customers will pay based on payment history, allowing you to focus collection efforts on high-risk accounts."
+        },
+        {
+            keywords: ["ap", "payable", "invoice"],
+            answer: "In AP, AI automates the '3-way match' (PO, Receipt, Invoice). It only flags the mismatches for you to fix, letting the clean ones go straight to payment."
+        }
+    ];
+
+    // FIX: Restored helper function to get current context
     const getTrainingContext = () => {
-        const slideContent = {
-            0: "Intro: We are upgrading from manual data entry to strategic insight. Think of AI as an infinite capacity assistant.",
-            1: "Why AI Matters: 1. Upgrade Role (Stop typing, start reviewing). 2. Close Faster. 3. Trusted Advisor (Research assistant, not decision maker). 4. Catch Mistakes (24/7 monitoring). 5. Stay Compliant.",
-            2: "Core Modules: 1. Mindset (Partner) 2. Prompting 3. Workflows 4. Responsibility.",
-            3: "Mindset Game: AI handles high-volume/repetitive tasks (e.g., invoice data entry, drafting routine entries). Humans handle high-value/strategy tasks (e.g., empathy, judgment, validating reports).",
-            4: "Prompting: The 4 Rules are: Be Specific, Give a Role, Set a Goal, Choose a Format.",
-            5: "Smarter Workflows: The 4-step process is: 1. Find Slow Spots (Identify tedious tasks). 2. Clean Up Steps (Simplify process before automating). 3. Place Automation (Choose 'Assistant Mode' for drafting or 'Engine Mode' for processing). 4. Ready For Review (Human verification).",
-            6: "Responsible AI Rules: 1. Human Verification (AI drafts, we approve). 2. Data Confidentiality (No PII in public AI). 3. Regulatory Compliance (Follow SOX/policies). 4. Audit Trails (Track usage).",
-            7: "Apps: Use Copilot for emails, Excel formulas, summaries, and flowcharts.",
-            8: "Simulation: Challenges in AR, AP, GL, and Audit showing how AI solves specific problems.",
-            9: "Resources: Links to Viva Learning and Prompting Guides.",
-            10: "Conclusion: Time saved is value gained. Start small today."
-        };
-        return slideContent[currentSlide] || "General training overview.";
+        const currentData = slideContentData[currentSlide] || slideContentData[0];
+        return currentData.summary;
     };
 
     const handleSendMessage = async (text = input) => {
@@ -110,155 +354,55 @@ const ChatbotComponent = ({ currentSlide, slideTitle }) => {
     // Friendly & Smart Logic
     const getSimulatedAiResponse = (query, context) => {
         const q = query.toLowerCase();
+        const currentData = slideContentData[currentSlide] || slideContentData[0]; // Fallback to slide 0 if undefined
 
-        // Greetings
-        if (q.match(/\b(hi|hello|hey|greetings|good morning|good afternoon|howdy|sup)\b/)) {
-            return "Hi there! I'm your AI Training Assistant.\n\nI'm here to help you navigate the future of finance.\n\n**Ask me anything about the training!**";
+        // 1. PRIORITY: Summarize
+        if (q.includes('summary') || q.includes('summarize') || q.includes('takeaway') || q.includes('key point') || q.includes('slide')) {
+            return `📝 **Summary:**\n\n${currentData.summary}`;
         }
 
-        // Farewells
-        if (q.match(/\b(bye|goodbye|see ya|later|cya)\b/)) {
-            return "Goodbye! \n\nGood luck with your training. I'll be here if you have more questions later!";
-        }
-
-        // Specific Help / Confusion
-        if (q.includes('help') || q.includes('confused') || q.includes('understand') || q.includes('lost')) {
-            return "No worries! Accounting AI is a shift, but it's designed to help you. \n\nWe're moving from manual typing to **strategic thinking**.\n\nTry asking:\n• 'What is the main benefit?'\n• 'How does this help with closing?'";
-        }
-
-        // Contextual Summary
-        if (q.includes('summary') || q.includes('summarize') || q.includes('takeaway') || q.includes('key point')) {
-            return `Sure! \n\nThe core message for **${slideTitle}** is:\n\n${context}`;
-        }
-
-        // Real-World Examples (VARIETY & BACKUP)
+        // 2. PRIORITY: Examples (Return a random one from the 5+ list)
         if (q.includes('example') || q.includes('real world') || q.includes('instance')) {
-            const examples = {
-                0: [
-                    "Here's a classic example: -> \n\n**Before:** You spend 3 days manually typing invoices into SAP.\n\n**With AI:** You upload the PDF folder. AI extracts vendor, date, amount, and GL code in 5 minutes. You just review the exceptions.",
-                    "Think about vendor onboarding. Instead of manually keying in W-9 data, AI can scan the form, validate the TIN with the IRS database, and draft the SAP vendor creation request for your approval.",
-                    "Consider bank reconciliations. Instead of ticking off thousands of rows, AI matches 99% of them automatically and only highlights the 1% that don't match for your review."
-                ],
-                1: [
-                    "Imagine month-end close. \n\nInstead of hunting for a $500 variance for hours, AI analyzes 10,000 transaction lines instantly and flags: 'Double payment to Vendor X on Jan 12th'.",
-                    "Think about accruals. AI can analyze PO history and receiving logs to suggest a precise accrual list, rather than you building a spreadsheet from scratch every month.",
-                    "Consider flux analysis. AI can write the initial draft explaining why Travel expense is up 20%, citing specific vendor payments, saving you an hour of digging."
-                ],
-                4: [
-                    "Think of writing an email. \n\n**Bad Prompt:** 'Write an email about the budget.'\n\n**Good Prompt:** 'Act as a Finance Manager. Draft a polite email to the Marketing Director asking for their Q3 variance explanations by Friday.'",
-                    "Imagine analyzing a contract. \n\n**Prompt:** 'Summarize this PDF contract. List all termination clauses and financial penalties in a bulleted list.'",
-                    "Consider Excel work. \n\n**Prompt:** 'I have a column of dates in European format. Write an Excel formula to convert them to US format.'"
-                ],
-                6: [
-                    "Consider data privacy. \n\n**Don't:** Paste a client's tax return into ChatGPT to summarize it.\n\n**Do:** Use Microsoft Copilot (Enterprise version) which keeps your data inside your company's secure wall.",
-                    "Think about verification. AI might draft a journal entry, but YOU must check if the debits and credits make sense before posting. AI is the drafter, you are the approver.",
-                    "Regarding compliance: If AI suggests a tax deduction, you must verify it against current tax law. AI can hallucinate, but you are the expert who knows the rules."
-                ]
-            };
+            const randomExample = currentData.examples[Math.floor(Math.random() * currentData.examples.length)];
+            return `${randomExample}`;
+        }
 
-            const slideExamples = examples[currentSlide];
-            if (slideExamples) {
-                // Return a random example from the list
-                return slideExamples[Math.floor(Math.random() * slideExamples.length)];
+        // 3. PRIORITY: Importance (Return a random one from the 5+ list)
+        if (q.includes('important') || q.includes('why') || q.includes('significance') || q.includes('benefit')) {
+            const randomImportance = currentData.importance[Math.floor(Math.random() * currentData.importance.length)];
+            return `${randomImportance}`;
+        }
+
+        // 4. Check Knowledge Base for matches
+        for (const item of knowledgeBase) {
+            if (item.keywords.some(keyword => q.includes(keyword))) {
+                return item.answer;
             }
-
-            // Generic fallback for other slides
-            const genericExamples = [
-                "Sure! Imagine using Copilot to summarize a 50-page tax regulation PDF into a 1-page checklist for your team. That's **instant expertise** in action.",
-                "Think about converting a PDF bank statement into an Excel table. AI does this in seconds, preserving formatting.",
-                "Imagine asking AI to 'Find all transactions over $10k from last quarter' and getting the answer instantly without running a report."
-            ];
-            return genericExamples[Math.floor(Math.random() * genericExamples.length)];
         }
 
-        // Importance (VARIETY & BACKUP)
-        if (q.includes('important') || q.includes('why') || q.includes('significance')) {
-             const importance = {
-                 0: [
-                     "It's important because the industry is shifting. \n\nThose who embrace AI will become **strategic advisors**, while manual data entry roles will fade. It's about future-proofing your career.",
-                     "It allows us to scale. We can handle 2x the transaction volume without working 2x the hours.",
-                     "It reduces burnout. By removing the boring data entry, we can focus on the interesting problem-solving parts of accounting."
-                 ],
-                 6: [
-                     "This is critical because **Trust** is our currency. \n\nIf we leak client data or blindly trust a wrong AI calculation, we lose credibility. Responsible use protects our reputation.",
-                     "We deal with sensitive financial data. Using AI responsibly prevents data breaches and keeps us SOX compliant.",
-                     "AI models can be wrong. Understanding responsible use ensures we catch those errors before they impact the financial statements."
-                 ]
-             };
-
-             const slideImportance = importance[currentSlide];
-             if (slideImportance) {
-                 return slideImportance[Math.floor(Math.random() * slideImportance.length)];
-             }
-
-             // Generic fallback
-             const genericImportance = [
-                 "It's crucial because **Time = Strategy**. Every hour saved on data entry is an hour you can spend analyzing trends, saving money, or guiding business decisions.",
-                 "It reduces human error. We get tired; AI doesn't. It adds a layer of automated review to our work.",
-                 "It keeps us competitive. Modern finance teams are all moving this way to close books faster and provide better insights."
-             ];
-             return genericImportance[Math.floor(Math.random() * genericImportance.length)];
+        // 5. Greetings
+        if (q.match(/\b(hi|hello|hey|greetings|good morning|good afternoon|howdy|sup)\b/)) {
+            return "Hi there! 👋 I'm your AI Training Assistant.\n\nI'm here to help you navigate the future of finance.\n\n**Ask me anything about the training, specific tools, or accounting scenarios!**";
         }
 
-        // Career & Job Security (New Smart Logic)
-        if (q.includes('job') || q.includes('replace') || q.includes('career') || q.includes('future') || q.includes('scared')) {
-            return "That's a common thought! \n\n**AI isn't here to replace accountants; it's here to promote them.**\n\nBy automating the boring stuff (data entry), you get to focus on high-value analysis that builds your career.";
+        // 6. Farewells
+        if (q.match(/\b(bye|goodbye|see ya|later|cya)\b/)) {
+            return "Goodbye! 👋\n\nGood luck with your training. I'll be here if you have more questions later!";
         }
 
-        // Tools & Efficiency (New Smart Logic)
-        if (q.includes('excel') || q.includes('tool') || q.includes('software') || q.includes('copilot') || q.includes('how to')) {
-            return "Great question! \n\nWe use tools like **Microsoft Copilot** to:\n• Write complex Excel formulas\n• Summarize huge datasets\n• Draft emails in seconds\n\nIt's like having a super-fast intern.";
+        // 7. Specific Help / Confusion
+        if (q.includes('help') || q.includes('confused') || q.includes('understand') || q.includes('lost')) {
+            return "No worries! Accounting AI is a shift, but it's designed to help you. 🧠\n\nWe're moving from manual typing to **strategic thinking**.\n\nTry asking:\n• 'How does AI help with audits?'\n• 'What is a good prompt?'\n• 'Is my job safe?'";
         }
 
-        // Accuracy & Risk (New Smart Logic)
-        if (q.includes('error') || q.includes('mistake') || q.includes('accurate') || q.includes('risk') || q.includes('safe')) {
-             return "Safety first! \n\nAI is a fantastic safety net. It scans **100% of transactions** for anomalies, spotting potential errors or fraud that a human eye might miss due to fatigue.";
-        }
-
-        // --- NEW: Common Questions Backup ---
-
-        // Getting Started
-        if (q.includes('start') || q.includes('begin') || q.includes('first step')) {
-            return "The best way to start is strictly internal! \n\n1. Open **Microsoft Copilot** (safe version).\n2. Try drafting a simple email or summarizing a long meeting transcript.\n3. Get comfortable with 'iterating'—asking it to refine the answer.";
-        }
-
-        // Hallucinations
-        if (q.includes('hallucinate') || q.includes('wrong') || q.includes('lie') || q.includes('fact check')) {
-            return "Yes, AI can 'hallucinate'! \n\nThis means it confidently states a fact that isn't true. **Always verify** numbers, dates, and regulations against source documents. Trust, but verify.";
-        }
-
-        // ROI / Value
-        if (q.includes('roi') || q.includes('worth it') || q.includes('benefit') || q.includes('value')) {
-            return "The ROI comes from **Time Savings**. \n\nIf AI saves 5 hours of data entry a week, that's 20 hours a month you can spend on analysis, strategy, or just going home on time during close!";
-        }
-
-        // Limitations
-        if (q.includes('limit') || q.includes('cannot do') || q.includes('weakness')) {
-             return "AI struggles with:\n• **Context:** It doesn't know company politics or unspoken history.\n• **Nuance:** It might miss sarcasm or subtle risks.\n• **Recent Events:** Some models have data cutoffs (though web-connected ones are better).";
-        }
-
-        // Content Matches with Friendly Tone
-        if (q.includes('trusted advisor')) return "Great question! \n\nThink of AI like a **super-fast research intern**.\n\nIt gathers the data and drafts the report, but **YOU** (the expert) make the final call.\n\nIt advises; you decide.";
-        if (q.includes('mistake') || q.includes('fraud')) return "This is one of my favorite features! \n\nAI never sleeps. It watches every single transaction **24/7** and pings you instantly if a number looks weird.\n\nIt's like having a superpower for error detection.";
-        if (q.includes('prompt') || q.includes('rule')) return "Prompting is just like managing a person! \n\nYou need to be clear. Remember the **4 Magic Rules**:\n\n1. Be Specific\n2. Give a Role\n3. Set a Goal\n4. Pick a Format";
-        if (q.includes('bias') || q.includes('risk')) return "Yes, that's super important. \n\nAI can sometimes be a 'people pleaser' and just agree with you, or miss diverse viewpoints.\n\n**Always ask it for 'pros and cons' to get a balanced view.**";
-        if (q.includes('human') || q.includes('strategy') || q.includes('judgment')) return "That's our turf! \n\nHumans are needed for:\n• Empathy\n• Leadership\n• Complex Judgment\n• Understanding Context\n\nAI is just a calculator on steroids; it doesn't understand *why* things happen like we do.";
-        if (q.includes('slow spot')) return "A **'slow spot'** is that part of your month where you dread the work—like manual reconciliation. \n\nWe want to find those spots, clean up the process, and let AI handle the heavy lifting.";
-        if (q.includes('ar challenge') || q.includes('credit')) return "For the **AR challenge**, you're dealing with a delicate balance.\n\nYou need to draft a polite email to Sales that firmly states the **45-day overdue invoices** must be paid before you can approve a credit limit increase.";
-        if (q.includes('audit') || q.includes('segregation')) return "In the **Audit challenge**, the AI is looking for a Segregation of Duties (SoD) violation.\n\nSpecifically, it flags if the person *requesting* a payment is the same person *approving* it, which is a major fraud risk.";
-        if (q.includes('verification') || q.includes('review')) return "Human Verification is crucial. \n\n**AI creates the draft, but we create the approval.**\n\nWe never blindly trust the output.";
-        if (q.includes('privacy') || q.includes('confidentiality')) return "Data Confidentiality means we **never** put customer PII into public AI tools.\n\nCustomer trust is our most important asset.";
-        if (q.includes('assistant') || q.includes('engine')) return "Here's the difference:\n\n**Assistant Mode **\nFor tasks you start (like drafting).\n\n**Engine Mode **\nFor background tasks (like sorting invoices).";
-
-
-        // Generic Fallback - Updated with Happy Emoji
-        return `That's a great question about **${slideTitle}**! \n\nBased on what we're learning:\n${context}\n\n(Feel free to ask for a specific example!)`;
+        // 8. Generic Fallback - Updated with Happy Emoji and slide context
+        return `That's a great question! 😊\n\nRegarding **${slideTitle}**, here is the key concept:\n${context}\n\nIf you need a specific definition or example (like "What is OCR?"), just ask!`;
     };
 
     const quickQuestions = [
-        "Summarize this slide ",
-        "Give me a real-world example ",
-        "Why is this important? "
+        "Summarize this slide 📝",
+        "Give me a real-world example 💡",
+        "Why is this important? 🚀"
     ];
 
     return (
@@ -287,7 +431,7 @@ const ChatbotComponent = ({ currentSlide, slideTitle }) => {
                                 <div className="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto">
                                     <Bot size={24} />
                                 </div>
-                                <p> <strong>Hi there!</strong> I'm your AI Training Assistant.</p>
+                                <p>👋 <strong>Hi there!</strong> I'm your AI Training Assistant.</p>
                                 <p>I can help you master <strong>"{slideTitle}"</strong>. What would you like to know?</p>
                             </div>
                         )}
@@ -379,28 +523,10 @@ const App = () => {
     </div>
   );
 
-  // --- Slide 1: Intro ---
+  // --- Slide 1: Intro (CLEAN, NO VIDEO) ---
   const IntroSlide = () => {
     return (
-      <div className="flex flex-col items-center justify-center h-full text-center space-y-3">
-
-        {/* Video from User - Linked directly */}
-        <div className="bg-slate-800 p-1 rounded-xl w-full max-w-lg shadow-2xl relative shrink-0">
-           <video
-              src="Video_prompt__202511232221.mp4"
-              className="w-full rounded-lg aspect-video object-cover border-4 border-blue-500/50"
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls
-          >
-            <p className="text-white text-sm p-4">
-               Your browser cannot access the video file from the chat sandbox.
-               Please ensure "Video_prompt__202511232221.mp4" is in the same folder as this code.
-            </p>
-          </video>
-        </div>
+      <div className="flex flex-col items-center justify-center h-full text-center space-y-6">
 
         {/* NEW ATTRACTIVE LOGO: Calculator + Sparkles (Automated Precision) */}
         <div className="p-4 bg-indigo-50 rounded-full shrink-0 relative border-2 border-indigo-100 shadow-sm">
@@ -410,18 +536,18 @@ const App = () => {
           </div>
         </div>
 
-        <h1 className="text-3xl font-bold text-slate-800 shrink-0">AI in Accounting: The Next Chapter</h1>
-        <p className="text-lg text-slate-600 max-w-2xl shrink-0">
+        <h1 className="text-4xl font-bold text-slate-800 shrink-0">AI in Accounting: The Next Chapter</h1>
+        <p className="text-xl text-slate-600 max-w-2xl shrink-0">
           Transforming tedious work into strategic insights and expertise.
         </p>
-        <div className="bg-white p-3 rounded-lg shadow-sm border border-slate-200 mt-2 shrink-0">
-          <p className="font-semibold text-slate-700">"Automate the routine. Build the future."</p>
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-slate-200 mt-4 shrink-0">
+          <p className="font-semibold text-slate-700 text-lg">"Automate the routine. Build the future."</p>
         </div>
         <button
           onClick={() => setCurrentSlide(1)}
-          className="px-6 py-3 bg-blue-600 text-white rounded-xl text-lg font-bold hover:bg-blue-700 transition shadow-lg flex items-center mt-4 shrink-0"
+          className="px-8 py-4 bg-blue-600 text-white rounded-xl text-xl font-bold hover:bg-blue-700 transition shadow-lg flex items-center mt-8 shrink-0"
         >
-          Start Training <ArrowRight className="ml-2 w-5 h-5" />
+          Start Training <ArrowRight className="ml-2 w-6 h-6" />
         </button>
       </div>
     );
@@ -556,12 +682,12 @@ const App = () => {
       if (isPaused) return;
 
       if (item.type === choice) {
-        setFeedback("Correct! ");
+        setFeedback("Correct! ✅");
         setFeedbackType("success");
         setExplanation(item.reason);
         setIsPaused(true);
       } else {
-        setFeedback("Try again! ");
+        setFeedback("Try again! ❌");
         setFeedbackType("error");
         setExplanation("Hint: Consider if this task requires emotional intelligence (Human) or high-speed data processing (AI).");
       }
@@ -721,17 +847,17 @@ const App = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div className="p-3 bg-red-50 border border-red-200 rounded-lg min-h-[80px] flex flex-col justify-center">
-                <span className="text-red-600 font-bold block mb-1 text-xs uppercase tracking-wide"> Bad Request</span>
+                <span className="text-red-600 font-bold block mb-1 text-xs uppercase tracking-wide">❌ Bad Request</span>
                 <p className="text-base text-slate-800 italic">"{steps[step].bad}"</p>
               </div>
               <div className="p-3 bg-green-50 border border-green-200 rounded-lg ring-2 ring-green-400 shadow-sm min-h-[80px] flex flex-col justify-center">
-                <span className="text-green-700 font-bold block mb-1 text-xs uppercase tracking-wide"> Good Request</span>
+                <span className="text-green-700 font-bold block mb-1 text-xs uppercase tracking-wide">✅ Good Request</span>
                 <p className="text-base text-slate-900 italic">"{steps[step].good}"</p>
               </div>
             </div>
 
             <div className="bg-blue-50 p-3 rounded-lg border-l-4 border-blue-500 mb-6 shrink-0">
-               <p className="text-blue-800 font-medium text-sm"> {steps[step].tip}</p>
+               <p className="text-blue-800 font-medium text-sm">💡 {steps[step].tip}</p>
             </div>
 
             <div className="flex justify-between shrink-0">
@@ -829,7 +955,7 @@ const App = () => {
                ) : (
                    // Default Empty State
                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center h-full flex flex-col justify-center items-center">
-                       <p className="text-slate-500 italic text-xs"> Hover over any step above to see details.</p>
+                       <p className="text-slate-500 italic text-xs">💡 Hover over any step above to see details.</p>
                    </div>
                )}
            </div>
@@ -919,9 +1045,9 @@ const App = () => {
     // Top 5 general tools (for non-sensitive content)
     const generalTools = [
       { name: "Email", desc: "Drafting professional emails faster", icon: Mail },
-      { name: "Excel", desc: "Complex formula generation & analysis", icon: FileSpreadsheet },
+      { name: "Excel", desc: "Generating and analyzing complex formulas", icon: FileSpreadsheet },
       { name: "Word", desc: "Summarizing complex documents", icon: FileText },
-      { name: "SAP", desc: "Help with SAP information retrieval", icon: Database },
+      { name: "SAP", desc: "Helping with SAP information retrieval", icon: Database },
       { name: "Flowcharts", desc: "Creating flowcharts", icon: Zap },
     ];
 
