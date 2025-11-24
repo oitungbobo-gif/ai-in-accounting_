@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Accounting Training - Complete Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.4s ease-out',
+                        'fade-in-up': 'fadeInUp 0.3s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(5px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+    <div id="app"></div>
+
+    <script type="module">
+        // Simple icons (using Unicode and CSS)
+        const icons = {
+            arrowRight: '→',
+            arrowLeft: '←',
+            checkCircle: '✓',
+            bot: '🤖',
+            sparkles: '✨',
+            calculator: '🧮',
+            users: '👥',
+            shield: '🛡️',
+            bookOpen: '📖',
+            messageSquare: '💬',
+            settings: '⚙️',
+            lock: '🔒',
+            search: '🔍',
+            mail: '📧',
+            fileSpreadsheet: '📊',
+            fileText: '📄',
+            database: '💾',
+            zap: '⚡',
+            dollarSign: '$',
+            terminal: '⌨️',
+            cpu: '🖥️',
+            brain: '🧠',
+            send: '📤',
+            x: '✕',
+            alertTriangle: '⚠️',
+        };
+
+        class TrainingApp {
+            constructor() {
+                this.currentSlide = 0;
+                this.chatbotOpen = false;
+                this.messages = [];
+                this.chatInput = '';
+                this.isThinking = false;
+
+                this.slideTitles = [
+                    "Intro", "Why AI Matters", "Core Modules", "Mindset Game",
+                    "Prompting Techniques", "Smarter Workflows", "Responsible AI",
+                    "Practical Apps", "Simulation Suite", "Resources", "Conclusion"
+                ];
+
+                this.render();
+            }
+
+            getTrainingContext() {
+                const contexts = {
+                    0: "Intro: We are upgrading from manual data entry to strategic insight.",
+                    1: "Why AI Matters: Upgrade Role, Close Faster, Trusted Advisor, Catch Mistakes, Stay Compliant.",
+                    2: "Core Modules: Mindset, Prompting, Workflows, Responsibility.",
+                    3: "Mindset Game: AI handles volume, Humans handle value.",
+                    4: "Prompting: Be Specific, Give a Role, Set a Goal, Choose a Format.",
+                    5: "Smarter Workflows: Find Slow Spots, Clean Up, Place Automation, Review.",
+                    6: "Responsible AI: Human Verification, Data Confidentiality, Compliance, Audit Trails.",
+                    7: "Apps: Use Copilot for emails, Excel, summaries, flowcharts.",
+                    8: "Simulation: AR, AP, GL, Audit challenges.",
+                    9: "Resources: Viva Learning and Prompting Guides.",
+                    10: "Conclusion: Time saved is value gained."
+                };
+                return contexts[this.currentSlide] || "General training overview.";
+            }
+
+            sendChatMessage(text) {
+                if (!text.trim()) return;
+
+                this.messages.push({ text, sender: 'user' });
+                this.isThinking = true;
+                this.render();
+
+                setTimeout(() => {
+                    const response = this.getAiResponse(text);
+                    this.messages.push({ text: response, sender: 'ai' });
+                    this.isThinking = false;
+                    this.chatInput = '';
+                    this.render();
+                }, 1200);
+            }
+
+            getAiResponse(query) {
+                const q = query.toLowerCase();
+                const context = this.getTrainingContext();
+                const slideTitle = this.slideTitles[this.currentSlide];
+
+                if (q.match(/\b(hi|hello|hey)\b/)) {
+                    return "Hi there! I'm your AI Training Assistant.\n\nI'm here to help you navigate the future of finance.\n\n**Ask me anything about the training!**";
+                }
+                if (q.includes('summary') || q.includes('summarize')) {
+                    return `Sure! \n\nThe core message for **${slideTitle}** is:\n\n${context}`;
+                }
+                if (q.includes('example')) {
+                    return "Here's a classic example: ->\n\n**Before:** You spend 3 days manually typing invoices into SAP.\n\n**With AI:** You upload the PDF folder. AI extracts vendor, date, amount, and GL code in 5 minutes. You just review the exceptions.";
+                }
+                if (q.includes('important') || q.includes('why')) {
+                    return "It's crucial because **Time = Strategy**. Every hour saved on data entry is an hour you can spend analyzing trends, saving money, or guiding business decisions.";
+                }
+
+                return `That's a great question about **${slideTitle}**! \n\nBased on what we're learning:\n${context}\n\n(Feel free to ask for a specific example!)`;
+            }
+
+            render() {
+                const app = document.getElementById('app');
+                app.innerHTML = `
+                    <div class="w-full h-screen bg-slate-50 flex items-center justify-center p-2 font-sans text-slate-900">
+                        <div class="w-full max-w-6xl bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col h-full border border-slate-100">
+
+                            <!-- Header -->
+                            <div class="bg-slate-800 text-white p-3 flex justify-between items-center shrink-0">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-2xl">${icons.bot}</span>
+                                    <span class="font-bold tracking-wider text-sm">AI ACCOUNTING <span class="text-blue-400">PRO</span></span>
+                                </div>
+                                <div class="flex items-center gap-3 text-xs">
+                                    <span>Module ${this.currentSlide + 1} of ${this.slideTitles.length}</span>
+                                    <div class="w-20 h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                                        <div style="width: ${((this.currentSlide + 1) / this.slideTitles.length) * 100}%"
+                                             class="h-full bg-blue-500 transition-all duration-500"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Main Content -->
+                            <div class="flex-grow p-4 overflow-y-auto relative bg-slate-50/50">
+                                ${this.renderSlide()}
+                            </div>
+
+                            <!-- Navigation -->
+                            <div class="p-4 border-t border-slate-100 bg-white flex justify-between items-center shrink-0">
+                                <button onclick="app.prevSlide()"
+                                        ${this.currentSlide === 0 ? 'disabled' : ''}
+                                        class="flex items-center px-3 py-1.5 text-slate-600 hover:bg-slate-100 rounded-lg disabled:opacity-50 transition text-sm">
+                                    ${icons.arrowLeft} Back
+                                </button>
+                                <div class="text-slate-400 text-[10px] uppercase tracking-widest font-semibold hidden sm:block">
+                                    Interactive Training Module
+                                </div>
+                                ${this.currentSlide < this.slideTitles.length - 1 ? `
+                                    <button onclick="app.nextSlide()"
+                                            class="flex items-center px-4 py-2 bg-slate-800 text-white hover:bg-slate-700 rounded-lg transition shadow-md text-sm font-bold">
+                                        Next ${icons.arrowRight}
+                                    </button>
+                                ` : '<div class="w-[84px]"></div>'}
+                            </div>
+                        </div>
+
+                        <!-- Chatbot -->
+                        ${this.renderChatbot()}
+                    </div>
+                `;
+            }
+
+            renderSlide() {
+                switch(this.currentSlide) {
+                    case 0: return this.renderIntro();
+                    case 1: return this.renderWhyAI();
+                    case 2: return this.renderModules();
+                    case 3: return this.renderMindset();
+                    case 4: return this.renderPrompting();
+                    case 5: return this.renderWorkflows();
+                    case 6: return this.renderResponsibleAI();
+                    case 7: return this.renderApps();
+                    case 8: return this.renderSimulation();
+                    case 9: return this.renderResources();
+                    case 10: return this.renderConclusion();
+                    default: return '<div>Slide not found</div>';
+                }
+            }
+
+            renderIntro() {
+                return `
+                    <div class="flex flex-col items-center justify-center h-full text-center space-y-6 animate-fade-in">
+                        <div class="text-6xl">${icons.calculator}${icons.sparkles}</div>
+                        <h1 class="text-4xl font-bold text-slate-800">AI in Accounting: The Next Chapter</h1>
+                        <p class="text-xl text-slate-600 max-w-2xl">
+                            Transforming tedious work into strategic insights and expertise.
+                        </p>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                            <p class="font-semibold text-slate-700 text-lg">"Automate the routine. Build the future."</p>
+                        </div>
+                        <button onclick="app.nextSlide()"
+                                class="px-8 py-4 bg-blue-600 text-white rounded-xl text-xl font-bold hover:bg-blue-700 transition shadow-lg">
+                            Start Training ${icons.arrowRight}
+                        </button>
+                    </div>
+                `;
+            }
+
+            renderWhyAI() {
+                const benefits = [
+                    { icon: '👤', title: 'Upgrade Role', desc: 'Stop typing data manually and start reviewing AI outputs.' },
+                    { icon: icons.checkCircle, title: 'Close Faster', desc: 'Close the books faster with less stress during month-end.' },
+                    { icon: icons.shield, title: 'Catch Mistakes', desc: '24/7 monitoring catches strange or suspicious transactions instantly.' },
+                    { icon: icons.users, title: 'Trusted Advisor', desc: 'Think of AI as a highly efficient research assistant.' },
+                    { icon: icons.bookOpen, title: 'Stay Compliant', desc: 'Stay ahead of changing GAAP rules and regulations automatically.' },
+                ];
+
+                return `
+                    <div class="flex flex-col h-full animate-fade-in p-2">
+                        <div class="text-center mb-6">
+                            <h2 class="text-3xl font-bold text-slate-900 mb-2">Why AI Matters in Accounting</h2>
+                            <p class="text-slate-500 max-w-2xl mx-auto">
+                                Shift your focus from <span class="text-slate-800 font-semibold">transactional processing</span>
+                                to <span class="text-indigo-600 font-bold">strategic analysis</span>.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+                            ${benefits.map((b, i) => `
+                                <div class="p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition border border-slate-100 ${i > 2 ? 'md:col-start-2' : ''}">
+                                    <div class="text-3xl mb-2">${b.icon}</div>
+                                    <h3 class="font-bold text-lg text-slate-800 mb-1">${b.title}</h3>
+                                    <p class="text-slate-600 text-sm">${b.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderModules() {
+                const modules = [
+                    { icon: icons.bot, title: 'New Mindset', desc: 'AI as a Partner: Embrace Collaboration' },
+                    { icon: icons.messageSquare, title: 'Effective Prompting', desc: 'Learn to ask clear questions for best answers.' },
+                    { icon: icons.settings, title: 'Smarter Workflows', desc: 'Streamline work; automate the right places.' },
+                    { icon: icons.lock, title: 'Responsible AI', desc: 'Safety, security, and compliance.' },
+                ];
+
+                return `
+                    <div class="flex flex-col items-center justify-center h-full animate-fade-in">
+                        <h2 class="text-3xl font-bold text-slate-800 mb-8">Core Modules for AI</h2>
+                        <div class="grid grid-cols-2 gap-6 max-w-4xl">
+                            ${modules.map(m => `
+                                <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-md border border-slate-100 hover:border-blue-300 transition text-center">
+                                    <div class="text-4xl mb-3">${m.icon}</div>
+                                    <h3 class="text-xl font-bold text-slate-800 mb-2">${m.title}</h3>
+                                    <p class="text-slate-600">${m.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderMindset() {
+                return `
+                    <div class="flex flex-col items-center justify-center h-full text-center space-y-6 animate-fade-in">
+                        <div class="text-6xl">${icons.users}${icons.bot}</div>
+                        <h2 class="text-3xl font-bold text-slate-800">Developing an AI Mindset</h2>
+                        <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-slate-100 max-w-3xl">
+                            <h3 class="text-2xl font-bold text-slate-800 mb-6">Key Principles:</h3>
+                            <div class="grid grid-cols-2 gap-4 text-left">
+                                <div class="p-4 bg-purple-50 rounded-lg">
+                                    <div class="text-2xl mb-2">${icons.bot}</div>
+                                    <h4 class="font-bold text-purple-800 mb-1">AI Handles</h4>
+                                    <p class="text-sm text-slate-700">High-volume, repetitive tasks like data entry and pattern matching</p>
+                                </div>
+                                <div class="p-4 bg-blue-50 rounded-lg">
+                                    <div class="text-2xl mb-2">${icons.users}</div>
+                                    <h4 class="font-bold text-blue-800 mb-1">Humans Handle</h4>
+                                    <p class="text-sm text-slate-700">High-value strategy, empathy, judgment, and validation</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xl text-slate-600 max-w-2xl">
+                            AI makes us better professionals by handling the volume while we handle the value.
+                        </p>
+                    </div>
+                `;
+            }
+
+            renderPrompting() {
+                const rules = [
+                    { num: '1', title: 'Be Specific', example: 'Write a quarterly expense report focusing on travel for Q3' },
+                    { num: '2', title: 'Give a Role', example: 'Act as a Revenue Accountant. Review the Q1 sales data...' },
+                    { num: '3', title: 'Set the Goal', example: 'Summarize this forecast for the CFO in 3 bullet points' },
+                    { num: '4', title: 'Choose Format', example: 'Create a table comparing Q2 vs Q3 with % change' },
+                ];
+
+                return `
+                    <div class="flex flex-col h-full animate-fade-in p-4">
+                        <h2 class="text-3xl font-bold text-slate-800 mb-2 text-center">Effective Prompting Techniques</h2>
+                        <p class="text-slate-600 mb-6 text-center">The 4 Magic Rules</p>
+                        <div class="grid grid-cols-2 gap-4 max-w-5xl mx-auto">
+                            ${rules.map(r => `
+                                <div class="p-5 bg-white rounded-xl shadow-md border border-slate-200">
+                                    <div class="flex items-center mb-3">
+                                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-3">
+                                            ${r.num}
+                                        </div>
+                                        <h3 class="text-lg font-bold text-blue-600">${r.title}</h3>
+                                    </div>
+                                    <div class="bg-green-50 border border-green-200 rounded-lg p-3">
+                                        <p class="text-sm text-slate-800 italic">"${r.example}"</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderWorkflows() {
+                const steps = [
+                    { icon: icons.search, title: 'Find Slow Spots', desc: 'Identify tedious tasks' },
+                    { icon: icons.checkCircle, title: 'Clean Up Steps', desc: 'Simplify before automating' },
+                    { icon: icons.cpu, title: 'Place Automation', desc: 'Choose Assistant or Engine mode' },
+                    { icon: icons.users, title: 'Ready For Review', desc: 'Human verification' },
+                ];
+
+                return `
+                    <div class="flex flex-col h-full animate-fade-in p-4">
+                        <h2 class="text-3xl font-bold text-slate-800 mb-6 text-center">Smarter Workflows</h2>
+                        <div class="grid grid-cols-4 gap-3 max-w-6xl mx-auto mb-6">
+                            ${steps.map((s, i) => `
+                                <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm text-center">
+                                    <div class="text-3xl mb-2">${s.icon}</div>
+                                    <h4 class="font-bold text-sm mb-1">${s.title}</h4>
+                                    <p class="text-xs text-slate-600">${s.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="bg-indigo-50 p-6 rounded-xl max-w-4xl mx-auto">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-indigo-700 mb-2 flex items-center">
+                                        <span class="text-2xl mr-2">${icons.users}</span> AI as Assistant
+                                    </h4>
+                                    <p class="text-sm text-slate-600">Best for: Emails, drafting, quick analysis</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-purple-700 mb-2 flex items-center">
+                                        <span class="text-2xl mr-2">${icons.settings}</span> AI as Engine
+                                    </h4>
+                                    <p class="text-sm text-slate-600">Best for: Data entry, sorting, recurring tasks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderResponsibleAI() {
+                const policies = [
+                    { icon: icons.checkCircle, title: 'Human Verification', desc: 'AI drafts, we approve' },
+                    { icon: icons.lock, title: 'Data Confidentiality', desc: 'No PII in public AI tools' },
+                    { icon: icons.bookOpen, title: 'Regulatory Compliance', desc: 'Follow SOX and policies' },
+                    { icon: icons.search, title: 'Audit Trails', desc: 'Track all AI usage' },
+                ];
+
+                return `
+                    <div class="flex flex-col h-full animate-fade-in p-4">
+                        <h2 class="text-3xl font-bold text-slate-800 mb-6 text-center">Responsible AI Usage</h2>
+                        <div class="grid grid-cols-2 gap-4 max-w-5xl mx-auto mb-6">
+                            ${policies.map(p => `
+                                <div class="p-5 bg-white rounded-xl shadow-md border-l-4 border-blue-500">
+                                    <div class="flex items-center mb-3">
+                                        <span class="text-2xl mr-3">${p.icon}</span>
+                                        <h3 class="font-bold text-lg">${p.title}</h3>
+                                    </div>
+                                    <p class="text-sm text-slate-600">${p.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="bg-amber-50 p-5 rounded-xl border border-amber-200 max-w-5xl mx-auto">
+                            <h3 class="font-bold text-amber-800 mb-3 flex items-center justify-center">
+                                <span class="text-2xl mr-2">${icons.alertTriangle}</span> Be Aware: AI Limitations
+                            </h3>
+                            <p class="text-sm text-amber-900">Always verify AI outputs, ask for pros/cons, and maintain human oversight.</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderApps() {
+                const tools = [
+                    { icon: icons.mail, name: 'Email', desc: 'Draft professional emails faster' },
+                    { icon: icons.fileSpreadsheet, name: 'Excel', desc: 'Complex formula generation' },
+                    { icon: icons.fileText, name: 'Word', desc: 'Summarize documents' },
+                    { icon: icons.database, name: 'SAP', desc: 'Information retrieval' },
+                    { icon: icons.zap, name: 'Flowcharts', desc: 'Visual process mapping' },
+                ];
+
+                return `
+                    <div class="flex flex-col h-full animate-fade-in p-4">
+                        <h2 class="text-3xl font-bold text-slate-800 mb-6 text-center">Hands-On: Practical Applications</h2>
+                        <div class="grid grid-cols-5 gap-4 max-w-6xl mx-auto">
+                            ${tools.map(t => `
+                                <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm hover:bg-blue-50 transition text-center">
+                                    <div class="text-3xl mb-2">${t.icon}</div>
+                                    <h4 class="font-bold text-sm mb-1">${t.name}</h4>
+                                    <p class="text-xs text-slate-600">${t.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="mt-8 text-center">
+                            <div class="inline-block bg-green-50 border-2 border-green-400 rounded-xl p-6 shadow-lg">
+                                <div class="text-4xl mb-2">${icons.dollarSign}</div>
+                                <h4 class="font-bold text-green-700 text-lg mb-2">Numero</h4>
+                                <p class="text-green-800 text-xs mb-1">FOR COMPANY USE</p>
+                                <p class="text-slate-600 text-sm">Automating Finance Insight</p>
+                                <a href="https://numero.io/" target="_blank" class="text-blue-600 text-sm hover:underline">Visit Numero →</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderSimulation() {
+                return `
+                    <div class="flex flex-col h-full animate-fade-in p-4">
+                        <h2 class="text-3xl font-bold text-indigo-700 mb-2 text-center">Advanced Simulation Suite</h2>
+                        <p class="text-gray-500 text-center mb-6">Test your analytical skills</p>
+                        <div class="grid grid-cols-2 gap-6 max-w-5xl mx-auto">
+                            <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-200">
+                                <h3 class="font-bold text-lg text-gray-800 mb-2">AR: Credit Request</h3>
+                                <p class="text-sm text-gray-600 mb-4">Draft emails about overdue invoices before approving credit increases.</p>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-3 text-xs">
+                                    <strong>Challenge:</strong> Balance firm policy with friendly communication
+                                </div>
+                            </div>
+                            <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-200">
+                                <h3 class="font-bold text-lg text-gray-800 mb-2">AP: Email Processing</h3>
+                                <p class="text-sm text-gray-600 mb-4">Handle invoices sent to wrong email addresses.</p>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-3 text-xs">
+                                    <strong>Challenge:</strong> Enforce process while maintaining vendor relationships
+                                </div>
+                            </div>
+                            <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-200">
+                                <h3 class="font-bold text-lg text-gray-800 mb-2">GL: Profit Center Mismatch</h3>
+                                <p class="text-sm text-gray-600 mb-4">Identify and correct logical mismatches in journal entries.</p>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-3 text-xs">
+                                    <strong>Challenge:</strong> Use AI to scan for anomalies in GL coding
+                                </div>
+                            </div>
+                            <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-200">
+                                <h3 class="font-bold text-lg text-gray-800 mb-2">Audit: SoD Violations</h3>
+                                <p class="text-sm text-gray-600 mb-4">Detect Segregation of Duties violations.</p>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-3 text-xs">
+                                    <strong>Challenge:</strong> Flag same person requesting and approving payments
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderResources() {
+                const resources = [
+                    { icon: icons.bookOpen, title: 'Viva Learning Portal', desc: 'Internal training modules on AI and M365' },
+                    { icon: icons.messageSquare, title: 'Prompting Guide', desc: 'Engineering better inputs for AI Copilot' },
+                    { icon: icons.zap, title: 'Microsoft Copilot Tips', desc: 'Save time with M365 tools' },
+                ];
+
+                return `
+                    <div class="flex flex-col items-center justify-center h-full animate-fade-in p-4">
+                        <h2 class="text-3xl font-bold text-slate-800 mb-8">Learning Resources</h2>
+                        <div class="space-y-4 max-w-3xl w-full">
+                            ${resources.map(r => `
+                                <div class="p-5 bg-white rounded-xl shadow-md border border-gray-200 hover:bg-indigo-50 transition flex items-center">
+                                    <span class="text-3xl mr-4">${r.icon}</span>
+                                    <div class="flex-grow">
+                                        <h3 class="font-bold text-lg text-gray-800">${r.title}</h3>
+                                        <p class="text-gray-600 text-sm">${r.desc}</p>
+                                    </div>
+                                    <span class="text-indigo-500 font-medium text-sm">${icons.arrowRight}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderConclusion() {
+                return `
+                    <div class="flex flex-col items-center justify-center h-full text-center space-y-6 animate-fade-in">
+                        <div class="text-6xl">${icons.checkCircle}</div>
+                        <h2 class="text-4xl font-bold text-slate-800">Training Complete!</h2>
+                        <div class="grid grid-cols-2 gap-6 max-w-4xl w-full">
+                            <div class="p-6 border border-slate-200 rounded-xl bg-white shadow-md">
+                                <h4 class="font-bold text-xl text-slate-800 mb-2">Time Saved is Value Gained</h4>
+                                <p class="text-slate-600">Use that time for strategic analysis and planning.</p>
+                            </div>
+                            <div class="p-6 border border-slate-200 rounded-xl bg-white shadow-md">
+                                <h4 class="font-bold text-xl text-slate-800 mb-2">Our Standards Never Change</h4>
+                                <p class="text-slate-600">Accuracy and integrity remain our core values.</p>
+                            </div>
+                            <div class="p-6 border border-slate-200 rounded-xl bg-white shadow-md">
+                                <h4 class="font-bold text-xl text-slate-800 mb-2">Our Role</h4>
+                                <p class="text-slate-600">Drive our department forward with innovation.</p>
+                            </div>
+                            <div class="p-6 border-2 border-blue-500 rounded-xl bg-blue-50 shadow-lg hover:shadow-xl transition">
+                                <div class="flex items-center justify-center mb-2">
+                                    <span class="text-3xl mr-2">${icons.zap}</span>
+                                    <h4 class="font-bold text-xl text-blue-700">Action Plan</h4>
+                                </div>
+                                <p class="text-slate-700 mb-2">Try one new AI tool today!</p>
+                                <a href="https://copilot.microsoft.com/" target="_blank"
+                                   class="text-blue-600 font-bold hover:underline">
+                                    Go to Microsoft Copilot ${icons.arrowRight}
+                                </a>
+                            </div>
+                        </div>
+                        <button onclick="app.currentSlide = 0; app.render();"
+                                class="px-8 py-3 bg-slate-800 text-white rounded-xl text-lg font-bold hover:bg-slate-700 transition shadow-md">
+                            Restart Training
+                        </button>
+                    </div>
+                `;
+            }
+
+            renderChatbot() {
+                if (!this.chatbotOpen) {
+                    return `
+                        <button onclick="app.toggleChatbot()"
+                                class="fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-2xl hover:bg-indigo-700 transition z-50 text-2xl">
+                            ${icons.messageSquare}
+                        </button>
+                    `;
+                }
+
+                return `
+                    <div class="fixed bottom-24 right-6 w-96 h-[500px] bg-white border border-gray-200 rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden">
+                        <div class="p-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <span>${icons.sparkles}</span>
+                                <span class="font-bold text-sm">Training Companion</span>
+                            </div>
+                            <button onclick="app.toggleChatbot()" class="text-xl hover:opacity-75">${icons.x}</button>
+                        </div>
+
+                        <div class="flex-grow overflow-y-auto p-4 space-y-4 bg-slate-50">
+                            ${this.messages.length === 0 ? `
+                                <div class="text-center p-4 text-slate-500 text-sm">
+                                    <div class="text-4xl mb-3">${icons.bot}</div>
+                                    <p><strong>Hi there!</strong> I'm your AI Training Assistant.</p>
+                                    <p class="mt-2">Ask me anything about <strong>"${this.slideTitles[this.currentSlide]}"</strong></p>
+                                </div>
+                            ` : ''}
+
+                            ${this.messages.map(msg => `
+                                <div class="flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}">
+                                    <div class="${msg.sender === 'user' ? 'bg-indigo-600 text-white rounded-br-none' : 'bg-white text-slate-800 border border-gray-100 rounded-bl-none'} max-w-[85%] p-3 rounded-2xl text-sm shadow-sm">
+                                        ${msg.text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>')}
+                                    </div>
+                                </div>
+                            `).join('')}
+
+                            ${this.isThinking ? `
+                                <div class="flex justify-start">
+                                    <div class="bg-white p-3 rounded-2xl border border-gray-100 shadow-sm">
+                                        <div class="flex gap-1">
+                                            <div class="w-2 h-2 bg-indigo-400 rounded-full animate-bounce"></div>
+                                            <div class="w-2 h-2 bg-indigo-400 rounded-full animate-bounce" style="animation-delay: 150ms"></div>
+                                            <div class="w-2 h-2 bg-indigo-400 rounded-full animate-bounce" style="animation-delay: 300ms"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+
+                        <div class="px-4 pt-2 bg-slate-50 flex gap-2 overflow-x-auto pb-2">
+                            <button onclick="app.sendChatMessage('Summarize this slide')"
+                                    class="whitespace-nowrap px-3 py-1 bg-white border border-indigo-200 rounded-full text-xs text-indigo-600 hover:bg-indigo-50">
+                                Summarize this slide
+                            </button>
+                            <button onclick="app.sendChatMessage('Give me a real-world example')"
+                                    class="whitespace-nowrap px-3 py-1 bg-white border border-indigo-200 rounded-full text-xs text-indigo-600 hover:bg-indigo-50">
+                                Give example
+                            </button>
+                        </div>
+
+                        <div class="p-3 border-t border-gray-100 bg-white flex gap-2">
+                            <input type="text" id="chatInput"
+                                   value="${this.chatInput}"
+                                   oninput="app.chatInput = this.value"
+                                   onkeypress="if(event.key === 'Enter') app.sendChatMessage(this.value)"
+                                   placeholder="Type your question..."
+                                   class="flex-grow p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <button onclick="app.sendChatMessage(document.getElementById('chatInput').value)"
+                                    class="p-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white transition">
+                                ${icons.send}
+                            </button>
+                        </div>
+                    </div>
+
+                    <button onclick="app.toggleChatbot()"
+                            class="fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-2xl hover:bg-indigo-700 transition z-50 text-2xl">
+                        ${icons.x}
+                    </button>
+                `;
+            }
+
+            toggleChatbot() {
+                this.chatbotOpen = !this.chatbotOpen;
+                this.render();
+            }
+
+            nextSlide() {
+                if (this.currentSlide < this.slideTitles.length - 1) {
+                    this.currentSlide++;
+                    this.render();
+                }
+            }
+
+            prevSlide() {
+                if (this.currentSlide > 0) {
+                    this.currentSlide--;
+                    this.render();
+                }
+            }
+        }
+
+        // Initialize the app
+        const app = new TrainingApp();
+        window.app = app; // Make it globally accessible for onclick handlers
+    </script>
+</body>
+</html>
