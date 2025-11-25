@@ -862,7 +862,7 @@ const PromptLab = ({ onFinish }) => {
               </span>
 
               {/* Blurred Content */}
-              <div className="transition-all duration-500 blur-sm group-hover:blur-none opacity-60 group-hover:opacity-100">
+              <div className="transition-all duration-500 filter blur-sm group-hover:blur-none opacity-60 group-hover:opacity-100">
                  <p className="text-lg text-slate-900 italic leading-relaxed">"{steps[step].good}"</p>
               </div>
 
@@ -1003,7 +1003,8 @@ const PolicyCard = ({ icon: Icon, title, subTitle, concept, standard, color, hov
               <div className="absolute top-2 right-2 text-slate-300 opacity-100 group-hover:opacity-0 transition-opacity">
                   <HelpCircle size={16} />
               </div>
-              <div className="absolute top-[-10%] left-8 w-[105%] h-auto min-h-[120%] bg-white p-4 rounded-xl shadow-2xl border border-slate-200 opacity-0 group-hover:opacity-100 transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto transform origin-top-left scale-95 group-hover:scale-100">
+              {/* Updated positioning to center the expansion and prevent clipping */}
+              <div className="absolute top-[-5%] -left-[2.5%] w-[105%] h-auto min-h-[110%] bg-white p-4 rounded-xl shadow-2xl border border-slate-200 opacity-0 group-hover:opacity-100 transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto transform origin-center scale-95 group-hover:scale-100">
                   <div className="flex flex-col mb-2 border-b pb-2 border-slate-100">
                       <div className="flex items-center justify-between">
                           <p className={`font-bold text-xs ${color.text} uppercase tracking-wide opacity-75`}>Extended Detail For:</p>
@@ -1059,29 +1060,31 @@ const ResponsibleAISlide = () => {
     <SlideContainer>
           <h2 className="text-3xl font-bold text-slate-800 mb-2 text-center shrink-0">Responsible AI Usage</h2>
 
-          <div className="flex flex-col gap-2 w-full max-w-7xl mx-auto flex-grow overflow-hidden p-1 h-full">
+          {/* Removed overflow-hidden to allow tooltips to be visible */}
+          <div className="flex flex-col gap-2 w-full max-w-7xl mx-auto flex-grow p-1 h-full">
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 flex-grow min-h-0">
-                  <div className="bg-indigo-50/50 rounded-xl p-2 border border-indigo-100 flex flex-col h-full overflow-hidden">
+                  {/* Removed overflow-hidden from columns */}
+                  <div className="bg-indigo-50/50 rounded-xl p-2 border border-indigo-100 flex flex-col h-full">
                       <h3 className="font-bold text-sm text-indigo-800 mb-2 flex items-center uppercase tracking-wide shrink-0">
                           <Shield className="w-4 h-4 mr-2"/> The SOX Control Zone
                       </h3>
-                      <div className="flex flex-col gap-2 flex-grow overflow-hidden">
+                      <div className="flex flex-col gap-2 flex-grow">
                           {soxPolicies.map((p, i) => (
-                              <div key={i} className="flex-1 min-h-0">
+                              <div key={i} className="flex-1 min-h-0 relative">
                                   <PolicyCard {...p} />
                               </div>
                           ))}
                       </div>
                   </div>
 
-                  <div className="bg-slate-50/50 rounded-xl p-2 border border-slate-200 flex flex-col h-full overflow-hidden">
+                  <div className="bg-slate-50/50 rounded-xl p-2 border border-slate-200 flex flex-col h-full">
                       <h3 className="font-bold text-sm text-slate-700 mb-2 flex items-center uppercase tracking-wide shrink-0">
                           <FileText className="w-4 h-4 mr-2"/> Data & Compliance Protocols
                       </h3>
-                      <div className="flex flex-col gap-2 flex-grow overflow-hidden">
+                      <div className="flex flex-col gap-2 flex-grow">
                           {generalPolicies.map((p, i) => (
-                              <div key={i} className="flex-1 min-h-0">
+                              <div key={i} className="flex-1 min-h-0 relative">
                                   <PolicyCard {...p} />
                               </div>
                           ))}
@@ -1153,11 +1156,11 @@ const PracticalAppsSlide = ({ onNext }) => {
             <div className="grid grid-cols-5 gap-3 w-full shrink-0">
                 {generalTools.map((tool, i) => (
                     <div key={i} className="p-3 bg-white border border-slate-200 rounded-xl flex flex-col items-center justify-center transition group hover:bg-blue-50 shadow-sm hover:shadow-md h-full">
-                        <div className="bg-blue-100 w-9 h-9 rounded-lg flex items-center justify-center mb-1 group-hover:bg-blue-200 shrink-0">
-                            <tool.icon className="text-blue-600 w-5 h-5" />
+                        <div className="bg-blue-100 w-10 h-10 rounded-lg flex items-center justify-center mb-2 group-hover:bg-blue-200 shrink-0">
+                            <tool.icon className="text-blue-600 w-6 h-6" />
                         </div>
-                        <h4 className="font-bold text-sm text-slate-800 mb-0.5 text-center leading-tight">{tool.name}</h4>
-                        <p className="text-slate-600 text-[11px] text-center leading-snug">{tool.desc}</p>
+                        <h4 className="font-bold text-lg text-slate-800 mb-1 text-center leading-tight">{tool.name}</h4>
+                        <p className="text-slate-600 text-sm text-center leading-snug">{tool.desc}</p>
                     </div>
                 ))}
             </div>
@@ -1167,14 +1170,14 @@ const PracticalAppsSlide = ({ onNext }) => {
                   href="https://numero.io/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3.5 bg-white border-2 border-green-400 rounded-xl flex flex-col items-center justify-center transition group hover:bg-green-50 shadow-lg hover:shadow-xl hover:scale-[1.02] w-[200px] h-auto mx-auto"
+                  className="p-5 bg-white border-2 border-green-400 rounded-xl flex flex-col items-center justify-center transition group hover:bg-green-50 shadow-lg hover:shadow-xl hover:scale-[1.02] w-[240px] h-auto mx-auto"
                 >
-                    <div className="bg-green-100 w-10 h-10 rounded-lg flex items-center justify-center mb-1.5 group-hover:bg-green-200 shrink-0">
-                         <DollarSign className="text-green-600 w-5 h-5" />
+                    <div className="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-2 group-hover:bg-green-200 shrink-0">
+                         <DollarSign className="text-green-600 w-7 h-7" />
                     </div>
-                    <h4 className="font-extrabold text-sm text-green-700 mb-0.5 text-center leading-tight">Numero</h4>
-                    <p className="text-green-800 text-[10px] text-center mb-1">FOR COMPANY USE</p>
-                    <p className="text-slate-600 text-[10px] text-center leading-snug">Automating Finance Insight</p>
+                    <h4 className="font-extrabold text-lg text-green-700 mb-1 text-center leading-tight">Numero</h4>
+                    <p className="text-green-800 text-xs text-center mb-1">FOR COMPANY USE</p>
+                    <p className="text-slate-600 text-xs text-center leading-snug">Automating Finance Insight</p>
                 </a>
             </div>
         </div>
